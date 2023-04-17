@@ -3,7 +3,7 @@ include 'db_connect.php';
 $db = db_iconnect('warehouse-works');
 $time_start = microtime(true);
 
-$query = $POST['manufacture'];
+$query = $_POST['manufacture'];
 $sql = "SELECT * FROM `equipment` WHERE `manufacture` = '$query'";
 $result = $db->query($sql) or 
     die("Something went wrong with $sql<br>".$db->error);

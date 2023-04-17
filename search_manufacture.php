@@ -3,7 +3,7 @@
 include 'db_connect.php';
 $db = db_iconnect('warehouse-works');
 $time_start = microtime(true);
-$sql = "SELECT DISTINCT (`manufacture`) FROM `equipment`";
+$sql = "SELECT DISTINCT `manufacture` FROM `equipment`";
 $result = $db->query($sql) or
     die("Something went wrong with: $sql<br>".$db->error);
 
