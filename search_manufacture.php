@@ -34,7 +34,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $result = $db->query($sql) or
         die("Something went wrong with: $sql<br>".$db->error);
     
-    echo "$results";
+    echo "<p>$results</p>";
 
     
     echo '<form method="post" action="">';
