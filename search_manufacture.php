@@ -8,7 +8,7 @@ $result = $db->query($sql) or
     die("Something went wrong with: $sql<br>".$db->error);
 
 
-echo '<form method="post" action="">';
+echo '<form method="post" action="results.php">';
 echo '<select name="manufacture" id="">';
 while($data=$result->fetch_array(MYSQLI_NUM)){
     echo '<option value="'.$data[0].'">'.$data[0].'</option>';
