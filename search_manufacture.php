@@ -17,6 +17,8 @@ while($data=$result->fetch_array(MYSQLI_NUM)){
 // End of select
 echo '</select>';
 
+echo '<button type="submit" name="submit" value="submit">Submit</button>';
+
 // End of Form
 echo '</form>';
 
