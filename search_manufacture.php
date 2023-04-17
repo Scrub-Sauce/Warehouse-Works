@@ -30,15 +30,15 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 } else {
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
-    $sql = "SELECT DISTINCT `manufacture` FROM `equipment`";
+    $sql = "SELECT * FROM `manufacture`";
     $result = $db->query($sql) or
         die("Something went wrong with: $sql<br>".$db->error);
 
-
+    
     echo '<form method="post" action="">';
     echo '<select name="manufacture" id="">';
     while($data=$result->fetch_array(MYSQLI_NUM)){
-        echo '<option value="'.$data[0].'">'.$data[1].'</option>';
+        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
     }
 
     // End of select
