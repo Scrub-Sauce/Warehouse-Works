@@ -1,31 +1,61 @@
 <?php
-
 include 'db_connect.php';
-$db = db_iconnect('warehouse-works');
-$time_start = microtime(true);
-$sql = "SELECT DISTINCT `manufacture` FROM `equipment`";
-$result = $db->query($sql) or
-    die("Something went wrong with: $sql<br>".$db->error);
+
+if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
+{
+    $db = db_iconnect('warehouse-works');
+    $time_start = microtime(true);
+    $query = $_POST['manufacture'];
+    $sql = "SELECT `type`, `serial_number` FROM `equipment` WHERE `manufacture` = '$query'";
+    $result = $db->query($sql) or 
+        die("Something went wrong with $sql<br>".$db->error);
+    echo '<h3>Search by manufacture: '.$query.'</h3>';
+    echo '<table>';
+    echo '<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
+    while($data=$result->fetch_array(MYSQLI_ASSOC )){
+        echo '<tr>';
+            echo '<td>'.$data['type'].'</td>';
+            echo '<td>'.$query.'</td>';
+            echo '<td>'.$data['serial_number'].'</td>';
+        echo '</tr>';
+    }
+
+    echo '</table>';
 
 
-echo '<form method="post" action="results.php">';
-echo '<select name="manufacture" id="">';
-while($data=$result->fetch_array(MYSQLI_NUM)){
-    echo '<option value="'.$data[0].'">'.$data[0].'</option>';
+    $time_end = microtime(true);
+    $seconds = $time_end - $time_start;
+    $execution_time = ($seconds) / 60;
+
+    echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+} else {
+    $db = db_iconnect('warehouse-works');
+    $time_start = microtime(true);
+    $sql = "SELECT DISTINCT `manufacture` FROM `equipment`";
+    $result = $db->query($sql) or
+        die("Something went wrong with: $sql<br>".$db->error);
+
+
+    echo '<form method="post" action="">';
+    echo '<select name="manufacture" id="">';
+    while($data=$result->fetch_array(MYSQLI_NUM)){
+        echo '<option value="'.$data[0].'">'.$data[0].'</option>';
+    }
+
+    // End of select
+    echo '</select>';
+
+    echo '<button type="submit" name="submit" value="submit">Submit</button>';
+
+    // End of Form
+    echo '</form>';
+
+    $time_end = microtime(true);
+    $seconds = $time_end - $time_start;
+    $execution_time = ($seconds) / 60;
+
+    echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 }
 
-// End of select
-echo '</select>';
-
-echo '<button type="submit" name="submit" value="submit">Submit</button>';
-
-// End of Form
-echo '</form>';
-
-$time_end = microtime(true);
-$seconds = $time_end - $time_start;
-$execution_time = ($seconds) / 60;
-
-echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 
 ?>

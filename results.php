@@ -1,11 +1,11 @@
 <?php
 include 'db_connect.php';
-$db = db_iconnect('warehouse-works');
-$time_start = microtime(true);
 
-$query = $_POST['manufacture'];
 if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 {
+    $db = db_iconnect('warehouse-works');
+    $time_start = microtime(true);
+    $query = $_POST['manufacture'];
     $sql = "SELECT `type`, `serial_number` FROM `equipment` WHERE `manufacture` = '$query'";
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
@@ -29,6 +29,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
-    echo "<h2>204: No Content<h2><p>To properly use this page submit a request at the <a href='./search_manufacture.php'>Search Manufacture</a> page</p>";
+    echo "<h2>204: No Content<h2>";
+    echo "<p>No post data recieved. Please use the <a href='./search_manufacture.php'>Search Manufacture</a> page.</p>"
 }
 ?>
