@@ -33,6 +33,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $sql = "SELECT * FROM `manufacture`";
     $result = $db->query($sql) or
         die("Something went wrong with: $sql<br>".$db->error);
+    
+    echo "$results";
 
     
     echo '<form method="post" action="">';
