@@ -34,13 +34,10 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $result = $db->query($sql) or
         die("Something went wrong with: $sql<br>".$db->error);
     
-    echo "<p>$results</p>";
-
-    
     echo '<form method="post" action="">';
     echo '<select name="manufacture" id="">';
     while($data=$result->fetch_array(MYSQLI_NUM)){
-        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
+        echo '<option value="'.$data['id'].'">'.$data.'</option>';
     }
 
     // End of select
