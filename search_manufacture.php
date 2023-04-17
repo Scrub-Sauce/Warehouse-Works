@@ -15,7 +15,6 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     while($data=$result->fetch_array(MYSQLI_ASSOC )){
         echo '<tr>';
             echo '<td>'.$data['type'].'</td>';
-            echo '<td>'.$query.'</td>';
             echo '<td>'.$data['serial_number'].'</td>';
         echo '</tr>';
     }
@@ -39,7 +38,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     echo '<form method="post" action="">';
     echo '<select name="manufacture" id="">';
     while($data=$result->fetch_array(MYSQLI_NUM)){
-        echo '<option value="'.$data[0].'">'.$data[0].'</option>';
+        echo '<option value="'.$data[0].'">'.$data[1].'</option>';
     }
 
     // End of select
