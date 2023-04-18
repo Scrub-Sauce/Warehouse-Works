@@ -56,12 +56,13 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
+
     echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
     echo "<p>$sql</p>";
     echo "<p>t_wild = $t_wild m_wild = $m_wild";
     echo '<table>';
     echo '<tr><th>Type</th><th>Serial Number</th></tr>';
-    if($results->rowCount() == 0){
+    if($result->rowCount() == 0){
         echo "<h3>No results found.</h3>";
     }else{
         while($data=$result->fetch_array(MYSQLI_ASSOC   )){
