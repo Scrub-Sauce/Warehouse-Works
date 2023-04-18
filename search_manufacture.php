@@ -6,10 +6,20 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
     $query = $_POST['manufacture'];
+    $sql = "SELECT `name` FROM `manufacture` WHERE `auto_id` = '$query'";
+    $result = $db->query($sql) or 
+        die("Something went wrong with $sql<br>".$db->error);
+
+    $manufacture;
+    while($data = $result->fetch_array(MYSQLI_ASSOC))
+    {
+        $manufacture = $data['auto_id'];
+    }
+
     $sql = "SELECT `type`, `serial_number` FROM `equipment` WHERE `manufacture` = '$query'";
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
-    echo '<h3>Search by manufacture: '.$query.'</h3>';
+    echo '<h3>Search by manufacture: '.$manufacture.'</h3>';
     echo '<table>';
     echo '<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
     while($data=$result->fetch_array(MYSQLI_ASSOC )){
