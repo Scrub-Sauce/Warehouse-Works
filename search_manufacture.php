@@ -9,10 +9,14 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $t_query = $_POST['type'];
     $n_query = $_POST['num'];
 
+    $m_wild = true;
+    $t_wild = true;
+
     $manufacture = NULL;
     if($m_query == '%'){
         $manufacture = 'Any';
     }else{
+        $m_wild = false;
         $sql = "SELECT `name` FROM `manufacture` WHERE `auto_id` = '$m_query'";
         $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
@@ -29,6 +33,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     if($t_query == '%'){
         $type = 'Any';
     }else{
+        $t_wild = false;
         $sql = "SELECT `name` FROM `type` WHERE `auto_id` = '$t_query'";
         $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
@@ -39,8 +44,18 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         }
     }
 
+    if(!$t_wild && !$m_wild){
+        $sql = "SELECT * FROM `equipment` WHERE `type` = '$t_query' AND `manufacture` = '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+    }elseif (!$t_wild && $m_wild) {
+        $sql = "SELECT * FROM `equipment` WHERE `type` = '$t_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+    }elseif ($t_wild && !$m_wild) {
+        $sql = "SELECT * FROM `equipment` WHERE `manufacture` = '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+    }elseif ($t_wild && $m_wild) {
+        $sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%%' LIMIT $n_query";
+    }
+
     
-    $sql = "SELECT * FROM `equipment` WHERE `type` LIKE '$t_query' AND `manufacture` LIKE '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+    
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
     echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
