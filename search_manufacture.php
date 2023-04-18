@@ -6,8 +6,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
     $m_query = $_POST['manufacture'];
-    $t_query = $_POST['type']
-    $n_query = $_POST['num']
+    $t_query = $_POST['type'];
+    $n_query = $_POST['num'];
 
     $manufacture = NULL;
     if($m_query == '%'){
