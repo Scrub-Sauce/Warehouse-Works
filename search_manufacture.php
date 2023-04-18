@@ -64,7 +64,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         
             echo '<h3>Search by type '.$type.' showing '.$n_query.' results.</h3>';
             echo '<table>';
-        echo '<tr><th>Auto ID</th><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
+        echo '<tr><th>Auto ID</th><th>Manufacture</th><th>Serial Number</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
@@ -80,7 +80,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         
             echo '<h3>Search by manufacture '.$manufacture.' showing '.$n_query.' results.</h3>';
             echo '<table>';
-        echo '<tr><th>Auto ID</th><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
+        echo '<tr><th>Auto ID</th><th>Type</th><th>Serial Number</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
