@@ -40,19 +40,23 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     }
 
     
-    $sql = "SELECT * FROM `equipment` WHERE `type` LIKE '$t_query' AND `manufacture` LIKE '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query;";
+    $sql = "SELECT * FROM `equipment` WHERE `type` LIKE '$t_query' AND `manufacture` LIKE '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
     echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
     echo '<table>';
     echo '<tr><th>Type</th><th>Serial Number</th></tr>';
-    while($data=$result->fetch_array(MYSQLI_ASSOC )){
-        echo '<tr>';
-            echo '<td>'.$data['type'].'</td>';
-            echo '<td>'.$data['serial_number'].'</td>';
-        echo '</tr>';
+    if($results->rowCount() == 0){
+        echo "<h3>No results found.</h3>";
+    }else{
+        while($data=$result->fetch_array(MYSQLI_ASSOC   )){
+            echo '<tr>';
+                echo '<td>'.$data['type'].'</td>';
+                echo '<td>'.$data['manufacture'].'</td>';
+                echo '<td>'.$data['serial_number'].'</td>';
+            echo '</tr>';
+        }
     }
-
     echo '</table>';
 
 
