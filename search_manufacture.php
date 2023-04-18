@@ -67,7 +67,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
             echo '<td>'.$data['type'].'</td>';
             echo '<td>'.$data['manufacture'].'</td>';
             echo '<td>'.$data['serial_number'].'</td>';
-            echo '</tr>';
+        echo '</tr>';
+    }
     echo '</table>';
 
 
@@ -76,6 +77,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $execution_time = ($seconds) / 60;
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+    
 
 } else {
     $db = db_iconnect('warehouse-works');
