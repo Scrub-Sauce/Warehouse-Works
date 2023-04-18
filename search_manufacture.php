@@ -54,8 +54,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%%' LIMIT $n_query";
     }
 
-    
-    
+    echo "<p>$sql</p>";
+
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
     echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
@@ -80,6 +80,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $execution_time = ($seconds) / 60;
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+
 } else {
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
