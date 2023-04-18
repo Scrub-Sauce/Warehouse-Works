@@ -123,7 +123,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     echo '<form method="post" action="">';
 
     echo "<label for='serial_num'>Serial Number:";
-    echo "<input type='text' name='serial_num' id='serial_num' />"
+    echo "<input type='text' name='serial_num' id='serial_num' />";
 
     echo '<label for="manufacture">Manufacture:</label>';
     echo '<select name="manufacture" id="manufacture">';
