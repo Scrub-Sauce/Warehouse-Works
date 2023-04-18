@@ -61,7 +61,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     echo "<p>$sql</p>";
     echo "<p>t_wild = $t_wild m_wild = $m_wild";
     echo '<table>';
-    echo '<tr><th>Type</th><th>Serial Number</th></tr>';
+    echo '<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
     while($data=$result->fetch_array(MYSQLI_ASSOC)){
         echo '<tr>';
             echo '<td>'.$data['type'].'</td>';
