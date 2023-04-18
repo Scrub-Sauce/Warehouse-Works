@@ -54,11 +54,11 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%%' LIMIT $n_query";
     }
 
-    echo "<p>$sql</p>";
-
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
     echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
+    echo "<p>$sql</p>";
+    echo "<p>t_wild = $t_wild m_wild = $m_wild";
     echo '<table>';
     echo '<tr><th>Type</th><th>Serial Number</th></tr>';
     if($results->rowCount() == 0){
