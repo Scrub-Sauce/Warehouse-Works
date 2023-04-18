@@ -90,11 +90,10 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         }
         echo '</table>';
     }elseif ($t_wild && $m_wild) {
-        $sql = "SELECT * FROM `equipment` WHERE `serial_number` = '$s_query' LIMIT $n_query";
+        $sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%$s_query%' LIMIT $n_query";
         $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
         
-            echo "$sql";
             echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
             echo '<table>';
         echo '<tr><th>Auto ID</th><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
