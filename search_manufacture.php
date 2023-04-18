@@ -10,10 +10,10 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
 
-    $manufacture;
+    $manufacture = NULL;
     while($data = $result->fetch_array(MYSQLI_ASSOC))
     {
-        $manufacture = $data['auto_id'];
+        $manufacture = $data['name'];
     }
 
     $sql = "SELECT `type`, `serial_number` FROM `equipment` WHERE `manufacture` = '$query'";
