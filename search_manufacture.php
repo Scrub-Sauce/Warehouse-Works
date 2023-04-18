@@ -62,17 +62,12 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     echo "<p>t_wild = $t_wild m_wild = $m_wild";
     echo '<table>';
     echo '<tr><th>Type</th><th>Serial Number</th></tr>';
-    if($result->rowCount() == 0){
-        echo "<h3>No results found.</h3>";
-    }else{
-        while($data=$result->fetch_array(MYSQLI_ASSOC   )){
-            echo '<tr>';
-                echo '<td>'.$data['type'].'</td>';
-                echo '<td>'.$data['manufacture'].'</td>';
-                echo '<td>'.$data['serial_number'].'</td>';
+    while($data=$result->fetch_array(MYSQLI_ASSOC)){
+        echo '<tr>';
+            echo '<td>'.$data['type'].'</td>';
+            echo '<td>'.$data['manufacture'].'</td>';
+            echo '<td>'.$data['serial_number'].'</td>';
             echo '</tr>';
-        }
-    }
     echo '</table>';
 
 
