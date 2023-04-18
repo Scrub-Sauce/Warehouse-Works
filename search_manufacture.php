@@ -8,6 +8,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $m_query = $_POST['manufacture'];
     $t_query = $_POST['type'];
     $n_query = $_POST['num'];
+    $s_query = $_POST['serial_num'];
 
     $m_wild = true;
     $t_wild = true;
@@ -45,21 +46,19 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     }
 
     if(!$t_wild && !$m_wild){
-        $sql = "SELECT * FROM `equipment` WHERE `type` = '$t_query' AND `manufacture` = '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+        $sql = "SELECT * FROM `equipment` WHERE `type` = '$t_query' AND `manufacture` = '$m_query' AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
     }elseif (!$t_wild && $m_wild) {
-        $sql = "SELECT * FROM `equipment` WHERE `type` = '$t_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+        $sql = "SELECT * FROM `equipment` WHERE `type` = '$t_query' AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
     }elseif ($t_wild && !$m_wild) {
-        $sql = "SELECT * FROM `equipment` WHERE `manufacture` = '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query";
+        $sql = "SELECT * FROM `equipment` WHERE `manufacture` = '$m_query' AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
     }elseif ($t_wild && $m_wild) {
-        $sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%%' LIMIT $n_query";
+        $sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%$s_query%' LIMIT $n_query";
     }
 
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
 
     echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
-    echo "<p>$sql</p>";
-    echo "<p>t_wild = $t_wild m_wild = $m_wild";
     echo '<table>';
     echo '<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
     while($data=$result->fetch_array(MYSQLI_ASSOC)){
@@ -84,7 +83,11 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $time_start = microtime(true);
 
     echo '<form method="post" action="">';
-    echo '<label for="manufacture">Manufacture</label>';
+
+    echo "<label for='serial_num'>Serial Number:";
+    echo "<input type='text' name='serial_num' id='serial_num' />"
+
+    echo '<label for="manufacture">Manufacture:</label>';
     echo '<select name="manufacture" id="manufacture">';
         echo '<option value="%">Any</option>';
         $sql = "SELECT * FROM `manufacture`";
@@ -96,7 +99,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     // End of select
     echo '</select>';
 
-    echo '<label for="type">Type</label>';
+    echo '<label for="type">Type:</label>';
     echo '<select name="type" id="type">';
         echo '<option value="%">Any</option>';
         $sql = "SELECT * FROM `type`";
@@ -108,7 +111,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     // End of select
     echo '</select>';
 
-    echo "<label for='num'>Max number of results</label>";
+    echo "<label for='num'>Max number of results:</label>";
     echo '<select name="num" id="num">';
         echo '<option value="10">10</option>';
         echo '<option value="25">25</option>';
