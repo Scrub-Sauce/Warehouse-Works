@@ -5,23 +5,47 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 {
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
-    $query = $_POST['manufacture'];
-    $sql = "SELECT `name` FROM `manufacture` WHERE `auto_id` = '$query'";
-    $result = $db->query($sql) or 
-        die("Something went wrong with $sql<br>".$db->error);
+    $m_query = $_POST['manufacture'];
+    $t_query = $_POST['type']
+    $n_query = $_POST['num']
 
     $manufacture = NULL;
-    while($data = $result->fetch_array(MYSQLI_ASSOC))
-    {
-        $manufacture = $data['name'];
+    if($m_query == '%'){
+        $manufacture = 'Any';
+    }else{
+        $sql = "SELECT `name` FROM `manufacture` WHERE `auto_id` = '$m_query'";
+        $result = $db->query($sql) or 
+            die("Something went wrong with $sql<br>".$db->error);
+
+        
+        while($data = $result->fetch_array(MYSQLI_ASSOC))
+        {
+            $manufacture = $data['name'];
+        }
+    }
+    
+
+    $type = NULL;
+    if($t_query == '%'){
+        $type = 'Any';
+    }else{
+        $sql = "SELECT `name` FROM `type` WHERE `auto_id` = '$t_query'";
+        $result = $db->query($sql) or 
+            die("Something went wrong with $sql<br>".$db->error);
+
+        while($data = $result->fetch_array(MYSQLI_ASSOC))
+        {
+            $type = $data['name'];
+        }
     }
 
-    $sql = "SELECT `type`, `serial_number` FROM `equipment` WHERE `manufacture` = '$query'";
+    
+    $sql = "SELECT * FROM `equipment` WHERE `type` LIKE '$t_query' AND `manufacture` LIKE '$m_query' AND `serial_number` LIKE '%%' LIMIT $n_query;";
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
-    echo '<h3>Search by manufacture: '.$manufacture.'</h3>';
+    echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '$n_query' results.</h3>';
     echo '<table>';
-    echo '<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
+    echo '<tr><th>Type</th><th>Serial Number</th></tr>';
     while($data=$result->fetch_array(MYSQLI_ASSOC )){
         echo '<tr>';
             echo '<td>'.$data['type'].'</td>';
@@ -40,18 +64,41 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 } else {
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
-    $sql = "SELECT * FROM `manufacture`";
-    $result = $db->query($sql) or
-        die("Something went wrong with: $sql<br>".$db->error);
-
 
     echo '<form method="post" action="">';
-    echo '<select name="manufacture" id="">';
-    while($data=$result->fetch_array(MYSQLI_ASSOC)){
-        echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-    }
-
+    echo '<label for="manufacture">Manufacture</label>';
+    echo '<select name="manufacture" id="manufacture">';
+        echo '<option value="%">Any</option>';
+        $sql = "SELECT * FROM `manufacture`";
+        $result = $db->query($sql) or
+            die("Something went wrong with: $sql<br>".$db->error);
+        while($data=$result->fetch_array(MYSQLI_ASSOC)){
+            echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+        }
     // End of select
+    echo '</select>';
+
+    echo '<label for="type">Type</label>';
+    echo '<select name="type" id="type">';
+        echo '<option value="%">Any</option>';
+        $sql = "SELECT * FROM `type`";
+        $result = $db->query($sql) or
+            die("Something went wrong with: $sql<br>".$db->error);
+        while($data=$result->fetch_array(MYSQLI_ASSOC)){
+            echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+        }
+    // End of select
+    echo '</select>';
+
+    echo "<label for='num'>Max number of results</label>";
+    echo '<select name="num" id="num">';
+        echo '<option value="10">10</option>';
+        echo '<option value="25">25</option>';
+        echo '<option value="50">50</option>';
+        echo '<option value="100">100</option>';
+        echo '<option value="250">250</option>';
+        echo '<option value="500">500</option>';
+        echo '<option value="1000">1000</option>';
     echo '</select>';
 
     echo '<button type="submit" name="submit" value="submit">Submit</button>';
