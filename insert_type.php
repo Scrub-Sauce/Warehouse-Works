@@ -12,13 +12,13 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $result = $db->query($sql);
     $data = $result->fetch_array(MYSQLI_ASSOC);
 
-    if($data != NULL) {
-        echo '<h2?>Error: type already exists</h2>';
-    } else {
+    if($data == NULL) {
         $sql = "INSERT INTO `type` (`name`) VALUES ('$type')";
         $result= $db->query($sql) or
             die ("Something went wrong with $sql<br>".$db->error);
         echo "<h2>Type '$type' successfully added.</h2>";
+    } else {
+        echo '<h2?>Error: type already exists</h2>';
     }
 
     $time_end = microtime(true);
