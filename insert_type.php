@@ -10,7 +10,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $sql = "SELECT * FROM `type` WHERE `name` ='$type'";
     
     $result = $db->query($sql);
-    $count = $result->fetch_array(MYSQLI_ASSOC);
+    $count = vardump($result->fetch_array(MYSQLI_ASSOC));
 
     echo "$count";
 
