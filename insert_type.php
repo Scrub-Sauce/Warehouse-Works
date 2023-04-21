@@ -7,19 +7,19 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $type = $_POST['type'];
 
     $db = db_iconnect('warehouse-works');
-    $sql = "SELECT * FROM `type` WHERE `name` ='$type'";
+    $sql = "SELECT COUNT(*) FROM `type` WHERE `name` ='$type'";
     
     $result = $db->query($sql);
-    $count = $result->fetch_array(MYSQLI_ASSOC);
+    $data = $result->fetch_array(MYSQLI_ASSOC);
 
-    if($count == NULL){
-        echo "<h2>Time to Insert!</h2>";
+    if($data != NULL) {
+        echo '<h2?>Error: type already exists</h2>';
     } else {
-        echo '<pre>';
-        var_dump($count);
-        echo '</pre>';
+        $sql = "INSERT INTO `type` (`name`) VALUES ('$type')";
+        $result= $db->query($sql) or
+            die ("Something went wrong with $sql<br>".$db->error);
+        echo "<h2>Type '$type' successfully added.</h2>";
     }
-    
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
