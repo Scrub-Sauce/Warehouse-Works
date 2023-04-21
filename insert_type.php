@@ -10,9 +10,9 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $sql = "SELECT * FROM `type` WHERE `name` ='$type'";
     
     $result = $db->query($sql);
-    $count = count($result->fetch_array(MYSQLI_ASSOC));
+    $count = $result->fetch_array(MYSQLI_ASSOC);
 
-    echo "Results Found: $count";
+    echo "$count"
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
