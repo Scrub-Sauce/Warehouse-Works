@@ -7,11 +7,6 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $type = $_POST['type'];
 
     $db = db_iconnect('warehouse-works');
-    $sql = "SELECT COUNT(*) FROM `type` WHERE `name` ='$type'";
-    
-    $result = $db->query($sql);
-    $count = $result->fetchColumn();
-
     
 
     $time_end = microtime(true);
