@@ -28,7 +28,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
-    echo '<h2>Insert new Type</h2>';
+    echo '<h2>Insert new type</h2>';
     echo '<form method="post" action="">';
         echo '<label for="type">Type:</label>';
         echo '<input name="type" type="text" class="input-field">';
