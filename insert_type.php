@@ -18,6 +18,9 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
             die ("Something went wrong with $sql<br>".$db->error);
         echo "<h2>Type '$type' successfully added.</h2>";
     } else {
+        echo '<pre>';
+        var_dump($data);
+        echo '</pre';
         echo '<h2?>Error: type already exists</h2>';
     }
 
