@@ -12,7 +12,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $result = $db->query($sql);
     $count = $result->fetch_array(MYSQLI_ASSOC);
 
-    echo "$count"
+    echo "$count";
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
