@@ -30,29 +30,31 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
+
     echo '<h1>Insert new equipment</h1>';
     echo '<form method="post" action="">';
-    echo '<label for="type">Type: </label>';
-    echo '<select name="type" id="type">';
-        $sql = "SELECT * FROM `type`";
-        $result = $db->query($sql) or
-            die("Something went wrong with: $sql<br>".$db->error);
-        while($data=$result->fetch_array(MYSQLI_ASSOC)){
-            echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-        }
-    echo '</select>';
-    echo '<label for="manufacture">Manufacture: </label>';
-    echo '<select name="manufacture" id="manufacture">';
-        $sql = "SELECT * FROM `manufacture`";
-        $result = $db->query($sql) or
-            die("Something went wrong with: $sql<br>".$db->error);
-        while($data=$result->fetch_array(MYSQLI_ASSOC)){
-            echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-        }
-    echo '</select>';
-    echo '<label for="serial_num">Serial Number: </label>';
-    echo '<input type="text" name="serial_num" id="serial_num">';
-    echo '<button name="submit" value="submit" type="submit">Submit</button>';
+        echo '<label for="type">Type: </label>';
+        echo '<select name="type" id="type">';
+            $db = db_iconnect('warehouse-works');
+            $sql = "SELECT * FROM `type`";
+            $result = $db->query($sql) or
+                die("Something went wrong with: $sql<br>".$db->error);
+            while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+            }
+        echo '</select>';
+        echo '<label for="manufacture">Manufacture: </label>';
+        echo '<select name="manufacture" id="manufacture">';
+            $sql = "SELECT * FROM `manufacture`";
+            $result = $db->query($sql) or
+                die("Something went wrong with: $sql<br>".$db->error);
+            while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+            }
+        echo '</select>';
+        echo '<label for="serial_num">Serial Number: </label>';
+        echo '<input type="text" name="serial_num" id="serial_num">';
+        echo '<button name="submit" value="submit" type="submit">Submit</button>';
     echo '</form>';
 }
 
