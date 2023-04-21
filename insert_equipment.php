@@ -21,7 +21,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
         echo "<h2>Equipment: $t_query - $m_query - $s_query has been added to the database";
 
     } else {
-        echo "<h2>Error: This equipment already exists. ID: $data['auto_id']";
+        echo '<h2>Error: This equipment already exists. ID: '.$data['auto_id'];
     }
 
     $time_end = microtime(true);
