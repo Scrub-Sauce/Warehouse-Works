@@ -1,7 +1,7 @@
 <?php
 include 'db_connect.php';
 
-if(isset($_POST['submit']) && $_POST['submit'] == 'submit'){
+if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $time_start = microtime(true);
 
     $type = $_POST['type'];
@@ -19,7 +19,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'submit'){
         $result= $db->query($sql) or
             die ("Something went wrong with $sql<br>".$db->error);
 
-        echo "Type '$type' successfully added.";
+        echo "<h2>Type '$type' successfully added.</h2>";
     }
 
     $time_end = microtime(true);
@@ -29,7 +29,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'submit'){
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
     echo '<h2>Insert new Type</h2>';
-    echo '<form method="post" class="inser-form" action="">';
+    echo '<form method="post" action="">';
         echo '<label for="type">Type:</label>';
         echo '<input name="type" type="text" class="input-field">';
         echo '<button type="submit" name="submit" value="submit" class="submit-button">Submit</button>';
