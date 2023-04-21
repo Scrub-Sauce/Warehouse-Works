@@ -28,7 +28,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     }
 
     $sql = "SELECT `auto_id`, `name` FROM `type`";
-    $result = $db->query($sql);
+    $result = $db->query($sql) or
+        die("Something weent wrong $sql<br>".$db->error);
     $t_map = array();
     foreach($result as $row){
         $t_map[$row['auto_id']] = $row['name'];
@@ -164,6 +165,12 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 
     // End of Form
     echo '</form>';
+
+    echo '<div class="inert-actions">';
+        echo '<a href="./insert_type.php"><button>Add Type</button></a>';
+        echo '<a href="./insert_manufacture.php"><button>Add Manufacture</button></a>';
+        echo '<a href="./insert_equipment.php"><button>Add Equipment</button></a>';
+    echo '</div>';
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
