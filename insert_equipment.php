@@ -14,6 +14,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
         die("Something went wrong with $sql<br>".$db->error);
     $data = $result->fetch_array(MYSQLI_ASSOC);
 
+    echo "<p>t_query: $t_query m_query: $m_query s_query: $s_query</p";
+
     // if($data == NULL) {
     //     $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_num`) VALUES ('$t_query', '$m_query', '$s_query')";
     //     $db->query($sql) or
