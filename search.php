@@ -167,9 +167,9 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     echo '</form>';
 
     echo '<div class="inert-actions">';
-        echo '<a href="./insert_type.php"><button>Add Type</button></a>';
-        echo '<a href="./insert_manufacture.php"><button>Add Manufacture</button></a>';
-        echo '<a href="./insert_equipment.php"><button>Add Equipment</button></a>';
+        echo '<a href="./insert_type.php">Add Type</a>';
+        echo '<a href="./insert_manufacture.php">Add Manufacture</a>';
+        echo '<a href="./insert_equipment.php">Add Equipment</a>';
     echo '</div>';
 
     $time_end = microtime(true);

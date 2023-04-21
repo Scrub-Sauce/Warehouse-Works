@@ -6,21 +6,21 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
 
     $type = $_POST['type'];
 
-    $db = db_iconnect('warehouse-works');
-    $sql = "SELECT COUNT(*) FROM `type` WHERE `name` ='$type'";
+    // $db = db_iconnect('warehouse-works');
+    // $sql = "SELECT COUNT(*) FROM `type` WHERE `name` ='$type'";
     
-    $result = $db->query($sql);
-    $count = $result->fetchColumn();
+    // $result = $db->query($sql);
+    // $count = $result->fetchColumn();
 
-    if($count > 0) {
-        echo '<h2?>Error: type already exists</h2>';
-    } else {
-        $sql = "INSERT INTO `type` (`name`) VALUES ('$type')";
-        $result= $db->query($sql) or
-            die ("Something went wrong with $sql<br>".$db->error);
+    // if($count > 0) {
+    //     echo '<h2?>Error: type already exists</h2>';
+    // } else {
+    //     $sql = "INSERT INTO `type` (`name`) VALUES ('$type')";
+    //     $result= $db->query($sql) or
+    //         die ("Something went wrong with $sql<br>".$db->error);
 
-        echo "<h2>Type '$type' successfully added.</h2>";
-    }
+    //     echo "<h2>Type '$type' successfully added.</h2>";
+    // }
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
