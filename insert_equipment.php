@@ -1,7 +1,7 @@
 <?php
-include 'db_connect.php'
+include 'db_connect.php';
 
-if(isset($_POST['submit']) && ($_POST['submit' == 'submit'])){
+if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $time_start = microtime(true);
 
     $t_query = $_POST['type'];
@@ -31,7 +31,7 @@ if(isset($_POST['submit']) && ($_POST['submit' == 'submit'])){
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
     echo '<h1>Insert new equipment</h1>';
-    echo '<form method='post' action="">';
+    echo '<form method="post" action="">';
     echo '<label for="type">Type: </label>';
     echo '<select name="type" id="type">';
         $sql = "SELECT * FROM `type`";
