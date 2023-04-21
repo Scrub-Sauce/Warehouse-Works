@@ -16,15 +16,15 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
 
     echo "<p>t_query: $t_query m_query: $m_query s_query: $s_query</p";
 
-    // if($data == NULL) {
-    //     $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_num`) VALUES ('$t_query', '$m_query', '$s_query')";
-    //     $db->query($sql) or
-    //         die("Something went wrong with $sql<br>".$db->error);
-    //     echo "<h2>Equipment: $t_query - $m_query - $s_query has been added to the database";
+    if($data == NULL) {
+        $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
+        $db->query($sql) or
+            die("Something went wrong with $sql<br>".$db->error);
+        echo "<h2>Equipment: $t_query - $m_query - $s_query has been added to the database";
 
-    // } else {
-    //     echo '<h2>Error: This equipment already exists. ID: '.$data['auto_id'];
-    // }
+    } else {
+        echo '<h2>Error: This equipment already exists. ID: '.$data['auto_id'];
+    }
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
