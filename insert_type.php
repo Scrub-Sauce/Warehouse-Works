@@ -7,7 +7,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $type = $_POST['type'];
 
     $db = db_iconnect('warehouse-works');
-    $sql = "SELECT COUNT(*) FROM `type` WHERE `name` ='$type'";
+    $sql = "SELECT * FROM `type` WHERE `name` ='$type'";
     
     $result = $db->query($sql);
     $data = $result->fetch_array(MYSQLI_ASSOC);
@@ -18,9 +18,6 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
             die ("Something went wrong with $sql<br>".$db->error);
         echo "<h2>Type '$type' successfully added.</h2>";
     } else {
-        echo '<pre>';
-        var_dump($data);
-        echo '</pre';
         echo '<h2?>Error: type already exists</h2>';
     }
 
