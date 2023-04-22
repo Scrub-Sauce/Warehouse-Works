@@ -54,6 +54,8 @@ table {
     border: solid rgb(173, 173, 173) 0.1rem;
     border-radius: 0.5rem;
     font-size: 1.6rem;
+    height:90%;
+    overflow: auto;
 }
 
 h2 {
