@@ -9,11 +9,13 @@
         $status_change = false;
         $name_change = false;
 
+        echo"'$name_change'";
+
         if($nt_query != NULL){
             $name_change = true;
         }
 
-        if($s_query != 0) {
+        if($s_query != '0') {
             $staus_change = true;
         }
 
