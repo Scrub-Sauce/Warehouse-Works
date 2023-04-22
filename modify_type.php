@@ -36,12 +36,12 @@ echo '<html lang="en">';
             $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
             $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
-            echo "<h3>ID: $t_query name has been updated.</h3>";
+            echo "<h2>ID: $t_query name has been updated.</h2>";
         }elseif(!$name_change && $status_change){
             $sql = "UPDATE `equipment` SET `status` = '$s_query' WHERE `type` = '$t_query'";
             $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
-            echo "<h3>ID: $t_query status has been updated.</h3>";
+            echo "<h2>ID: $t_query status has been updated.</h2>";
         }elseif($name_change && $status_change){
             $sql = "UPDATE `equipment` SET `status` = '$s_query' WHERE `type` = '$t_query'";
             $db->query($sql) or
@@ -49,9 +49,9 @@ echo '<html lang="en">';
             $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
             $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
-            echo "<h3>ID: $t_query name and status have been updated.</h3>";
+            echo "<h2>ID: $t_query name and status have been updated.</h2>";
         }else{
-            echo '<h3>No Values Changed.</h3>';
+            echo '<h2>No Values Changed.</h2>';
         }
         $sql="Commit";
         $db->query($sql) or
@@ -64,6 +64,7 @@ echo '<html lang="en">';
         $execution_time = ($seconds) / 60;
 
         echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+        echo '<a href="./search.php">Home</a>';
 
     } else {
         $time_start = microtime(true);
@@ -100,6 +101,7 @@ echo '<html lang="en">';
         $execution_time = ($seconds) / 60;
 
         echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+        echo '<a href="./search.php">Home</a>';
     }
     
     echo '</body>';

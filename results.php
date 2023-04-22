@@ -9,7 +9,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $sql = "SELECT `type`, `serial_number` FROM `equipment` WHERE `manufacture` = '$query'";
     $result = $db->query($sql) or 
         die("Something went wrong with $sql<br>".$db->error);
-    echo '<h3>Search by manufacture: '.$query.'</h3>';
+    echo '<h2>Search by manufacture: '.$query.'</h2>';
     echo '<table>';
     echo '<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
     while($data=$result->fetch_array(MYSQLI_ASSOC )){

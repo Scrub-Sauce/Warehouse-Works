@@ -26,6 +26,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $execution_time = ($seconds) / 60;
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+    echo '<a href="./search.php">Home</a>';
 } else {
     $time_start = microtime(true);
     echo '<h2>Insert new type</h2>';
@@ -40,5 +41,6 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
     $execution_time = ($seconds) / 60;
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
+    echo '<a href="./search.php">Home</a>';
 }
 ?>
