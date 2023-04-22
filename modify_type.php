@@ -13,7 +13,7 @@
             $name_change = false;
         }
 
-        if($s_query == '0') {
+        if($s_query == 0) {
             $staus_change = false;
         }
 
