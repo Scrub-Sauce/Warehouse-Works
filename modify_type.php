@@ -42,10 +42,12 @@
         }else{
             echo '<h3>No Values Changed.</h3>';
         }
-        $sql="Commit;Set autocommit=1";
+        $sql="Commit";
         $db->query($sql) or
             die("Something went wrong with $sql<br>".$db->error);
-
+        $sql="Set autocommit=1";
+        $db->query($sql) or
+            die("Something went wrong with $sql<br>".$db->error);
         $time_end = microtime(true);
         $seconds = $time_end - $time_start;
         $execution_time = ($seconds) / 60;
