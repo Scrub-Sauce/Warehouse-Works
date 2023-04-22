@@ -18,7 +18,7 @@
     } else {
         echo '<h1>Modify Type</h1>';
         echo '<form method="post" action="">';
-            echo '<label for="type"></label>';
+            echo '<label for="type">Type: </label>';
             echo '<select name="type" id="type">';
             $db = db_iconnect('warehouse-works');
             $sql = "SELECT * FROM `type`";
@@ -28,8 +28,9 @@
                 echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
             }
             echo '</select>';
+            echo '<label for="status">Status: </label>';
             echo '<select name="status" id="status>';
-                echo '<option value="active">Active</option>';
+                echo '<option value="active">Active</option>';;
                 echo '<option value="inactive">Inactive</option>';
             echo '</select>';
             echo '<label for="new_type">New Type: </label>';
