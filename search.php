@@ -184,7 +184,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         echo '</div>';
 
         echo '<div class="link">';
-            echo '<a href="./modify_type">Update Type</a>';
+            echo '<a href="./modify_type.php">Update Type</a>';
             echo '<a href="./modify_manufacture.php">Update Manufacture</a>';
             echo '<a href="./modify_equipment.php">Update Equipment</a>';
         echo '</div>';
