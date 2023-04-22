@@ -34,7 +34,7 @@ a {
     font-size: 2rem;
  }
 
- input {
+ input, select, option {
     height: 2rem;
     font-size: 1.6rem;
  }
