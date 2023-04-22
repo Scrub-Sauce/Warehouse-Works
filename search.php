@@ -40,8 +40,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     }
 
     $sql = "SELECT `auto_id`, `name` FROM `type`";
-    $result = $db->query($sql) or
-        die("Something weent wrong $sql<br>".$db->error);
+    $result = $db->query($sql) or 
+            die("Something went wrong with $sql<br>".$db->error);
     $t_map = array();
     foreach($result as $row){
         $t_map[$row['auto_id']] = $row['name'];
@@ -49,7 +49,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 
     $sql = "SELECT * FROM `status`"
     $result = $db->query($sql) or 
-        die("Something went wrong with $sql<br>".$db->error);
+            die("Something went wrong with $sql<br>".$db->error);
     $stat_map = array();
     foreach($result as $row){
         $stat_map[$row['auto_id']] = $row['name'];
