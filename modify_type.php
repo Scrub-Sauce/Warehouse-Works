@@ -20,7 +20,7 @@
         $db = db_iconnect('warehouse-works');
         $sql="Set autocommit=0";
         $db->query($sql) or
-            die("Something went wrong with $sql<br>\n".$dblink->error);
+            die("Something went wrong with $sql<br>".$db->error);
         if($name_change && !$status_change){
             $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
             $db->query($sql) or
@@ -42,9 +42,9 @@
         }else{
             echo '<h3>No Values Changed.</h3>';
         }
-        $sql="Commit;SET autocommit=1";
+        $sql="Commit;Set autocommit=1";
         $db->query($sql) or
-            die("Something went wrong with $sql<br>\n".$dblink->error);
+            die("Something went wrong with $sql<br>".$db->error);
 
         $time_end = microtime(true);
         $seconds = $time_end - $time_start;
