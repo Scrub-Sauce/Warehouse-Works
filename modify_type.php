@@ -21,9 +21,9 @@
             $sql = "SELECT * FROM `type`";
             $result = $db->query($sql) or 
                 die ("Something went wrong with $sql<br>".$db->error);
-            while($data = $results->fetch_array(MYSQLI_ASSOC){
+            while($data = $results->fetch_array(MYSQLI_ASSOC)){
                 echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-            })
+            }
             echo '</select>';
             echo '<label for="new_type">New Type: </label>';
             echo '<input type="text" name="new_type">';
