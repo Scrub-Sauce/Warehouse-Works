@@ -16,6 +16,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem;
 }
 
 a {
@@ -27,6 +29,10 @@ a {
     transition: all 0.3s;
     background-color: rgb(29, 141, 172);
     color: white;
+}
+
+form{
+    margin: 0.5rem;
 }
  label{
     font-size: 2rem;

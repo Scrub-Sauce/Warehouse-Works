@@ -25,7 +25,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     $t_wild = true;
 
     $sql = "SELECT `auto_id`, `name` FROM `manufacture`";
-    $result = $db->query($sql);
+    $result = $db->query($sql) or 
+        die("Something went wrong with $sql<br>".$db->error);
     $m_map = array();
     foreach($result as $row){
         $m_map[$row['auto_id']] = $row['name'];
@@ -46,6 +47,15 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $t_map[$row['auto_id']] = $row['name'];
     }
 
+    $sql = "SELECT * FROM `status`"
+    $result = $db->query($sql) or 
+        die("Something went wrong with $sql<br>".$db->error);
+    $stat_map = array();
+    foreach($result as $row){
+        $stat_map[$row['auto_id']] = $row['name'];
+    }
+
+
     $type = NULL;
     if($t_query == '%'){
         $type = 'Any';
@@ -61,11 +71,12 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         
             echo '<h2>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h2>';
             echo '<table>';
-        echo '<tr><th>Auto ID</th><th>Serial Number</th></tr>';
+        echo '<tr><th>Auto ID</th><th>Serial Number</th><th>Status</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
+                echo "<td>$stat_map[$data['status']]</td>";
             echo '</tr>';
         }
         echo '</table>';
@@ -76,12 +87,13 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         
             echo '<h2>Search by type '.$type.' showing '.$n_query.' results.</h2>';
             echo '<table>';
-        echo '<tr><th>Auto ID</th><th>Manufacture</th><th>Serial Number</th></tr>';
+        echo '<tr><th>Auto ID</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$m_map[$data['manufacture']].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
+                echo "<td>$stat_map[$data['status']]</td>";
             echo '</tr>';
         }
         echo '</table>';
@@ -92,12 +104,13 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 
             echo '<header><h2>Search by manufacture '.$manufacture.' showing '.$n_query.' results.</h2></header>';
             echo '<table>';
-        echo '<tr><th>Auto ID</th><th>Type</th><th>Serial Number</th></tr>';
+        echo '<tr><th>Auto ID</th><th>Type</th><th>Serial Number</th><th>Status</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$t_map[$data['type']].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
+                echo "<td>$stat_map[$data['status']]</td>";
             echo '</tr>';
         }
         echo '</table>';
@@ -108,13 +121,14 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         
             echo '<h2>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h2>';
         echo '<table>';
-        echo '<tr><th>Auto ID</th><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
+        echo '<tr><th>Auto ID</th><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$t_map[$data['type']].'</td>';
                 echo '<td>'.$m_map[$data['manufacture']].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
+                echo "<td>$stat_map[$data['status']]</td>";
             echo '</tr>';
         }
         echo '</table>';
