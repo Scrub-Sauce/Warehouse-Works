@@ -30,7 +30,14 @@ a {
     background-color: rgb(29, 141, 172);
     color: white;
 }
+ label{
+    font-size: 2rem;
+ }
 
+ input {
+    height: 2rem;
+    font-size: 1.6rem;
+ }
 
 
 a:hover {
