@@ -55,6 +55,7 @@ table {
     border-radius: 0.5rem;
     font-size: 1.6rem;
     height:90%;
+    width: 70%;
     overflow: auto;
 }
 
@@ -67,6 +68,6 @@ tr:nth-child(even) {
 }
 
 td {
-    margin: 0.3rem;
+    margin: 0.5rem;
 }
 
