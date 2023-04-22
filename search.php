@@ -89,8 +89,8 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $sql = "SELECT * FROM `equipment` WHERE `manufacture` = '$m_query' AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
         $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
-        
-            echo '<h2>Search by manufacture '.$manufacture.' showing '.$n_query.' results.</h2>';
+
+            echo '<header><h2>Search by manufacture '.$manufacture.' showing '.$n_query.' results.</h2></header>';
             echo '<table>';
         echo '<tr><th>Auto ID</th><th>Type</th><th>Serial Number</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
