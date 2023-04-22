@@ -4,7 +4,7 @@
     if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
         $t_query = $_POST['type'];
         $nt_query = $_POST['new_type'];
-        $s_query = $_POST['status'];
+        $s_query = $_POST['status_change'];
 
         $status_change = true;
         $name_change = true;
@@ -57,8 +57,8 @@
                     echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
                 }
             echo '</select>';
-            echo '<label for="status">Status: </label>';
-            echo '<select name="status" id="status">';
+            echo '<label for="status_change">Status: </label>';
+            echo '<select name="status_change" id="status_change">';
                 echo '<option value="0">No Change</option>';
                 $sql = "SELECT * FROM `status`";
                 $result = $db->query($sql) or
