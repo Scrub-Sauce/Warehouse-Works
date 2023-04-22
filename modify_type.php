@@ -13,10 +13,10 @@
         if($nt_query == ''){
             $name_change = false;
         }
-
         if($s_query == '0') {
             $status_change = false;
         }
+
         $db = db_iconnect('warehouse-works');
         if($name_change && !$status_change){
             $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
@@ -25,7 +25,7 @@
             echo "<h3>ID: $t_query name has been updated.</h3>";
         }elseif(!$name_change && $status_change){
             $sql = "UPDATE `equipment` SET `status` = '$s_query' WHERE `type` = '$t_query'";
-            db->query($sql) or
+            $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
             echo "<h3>ID: $t_query status has been updated.</h3>";
         }elseif($name_change && $status_change){
