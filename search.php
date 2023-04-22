@@ -47,7 +47,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $t_map[$row['auto_id']] = $row['name'];
     }
 
-    $sql = "SELECT * FROM `status`"
+    $sql = "SELECT * FROM `status`";
     $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
     $stat_map = array();
