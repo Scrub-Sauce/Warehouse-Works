@@ -49,3 +49,12 @@ a:hover {
 p {
     font-size: 1.6rem;
 }
+
+ul {
+    border: solid grey 0.1rem;
+    border-radius: 0.5rem;
+}
+
+ul:nth-child(even) {
+    background-color: rgb(197, 197, 197);
+}
