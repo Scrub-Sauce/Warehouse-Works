@@ -72,5 +72,6 @@ tr:nth-child(even) {
 
 td {
     margin: 0.5rem;
+    text-align: center;
 }
 
