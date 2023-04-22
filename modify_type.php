@@ -6,23 +6,23 @@
         $nt_query = $_POST['new_type'];
         $s_query = $_POST['status'];
 
-        $status_change = false;
-        $name_change = false;
+        $status_change = true;
+        $name_change = true;
 
-        echo"'$name_change'";
+        echo "'$name_change'";
 
-        if($nt_query != NULL){
-            $name_change = true;
+        if($nt_query == ''){
+            $name_change = false;
         }
 
-        if($s_query != '0') {
-            $staus_change = true;
+        if($s_query == '0') {
+            $staus_change = false;
         }
 
-        echo 'status_change:';
+        echo "s_query = '$s_query' status_change:";
         echo $status_change ? 'true' : 'false';
 
-        echo 'name_change:';
+        echo "nt_query = '$nt_query' name_change:";
         echo $name_change ? 'true' : 'false';
         $db = db_iconnect('warehouse-works');
         if($name_change && !$status_change){
@@ -59,11 +59,12 @@
             echo '</select>';
             echo '<label for="status">Status: </label>';
             echo '<select name="status" id="status">';
+                echo '<option value="0">No Change</option>';
                 $sql = "SELECT * FROM `status`";
                 $result = $db->query($sql) or
                     die("Something went wrong with: $sql<br>".$db->error);
                 while($data=$result->fetch_array(MYSQLI_ASSOC)){
-                    echo '<option value="0">No Change</option>';
+                    
                     echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
                 }
             echo '</select>';
