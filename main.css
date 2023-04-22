@@ -32,10 +32,11 @@ a {
 }
  label{
     font-size: 2rem;
+    margin: 0.5rem;
  }
 
  input, select, option {
-    padding: 0.5rem;
+    margin: 0.5rem;
     font-size: 1.6rem;
  }
 
