@@ -6,17 +6,22 @@
         $nt_query = $_POST['new_type'];
         $s_query = $_POST['status'];
 
-        $status_change = FALSE;
-        $name_change = FALSE;
+        $status_change = false;
+        $name_change = false;
 
-        if($nt_query != ''){
-            $name_change = TRUE;
+        if($nt_query != NULL){
+            $name_change = true;
         }
 
         if($s_query != 0) {
-            $staus_change = TRUE;
+            $staus_change = true;
         }
 
+        echo 'status_change:';
+        echo $status_change ? 'true' : 'false';
+
+        echo 'name_change:';
+        echo $name_change ? 'true' : 'false';
         $db = db_iconnect('warehouse-works');
         if($name_change && !$status_change){
             echo '<p>Name change only</p>';
