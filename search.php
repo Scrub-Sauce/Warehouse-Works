@@ -74,7 +74,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
         
-            echo '<h3>Search by type '.$type.' showing '.$n_query.' results.</h3>';
+            echo '<h2>Search by type '.$type.' showing '.$n_query.' results.</h2>';
             echo '<table>';
         echo '<tr><th>Auto ID</th><th>Manufacture</th><th>Serial Number</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
