@@ -23,7 +23,7 @@
         }elseif(!$name_change && $status_change){
             echo '<p>Status change only</p>';
         }elseif($name_change && $status_change){
-            echo '<p>Name and Status Change</p>'
+            echo '<p>Name and Status Change</p>';
         }else{
             echo '<p>Change None.</p>';
         }
