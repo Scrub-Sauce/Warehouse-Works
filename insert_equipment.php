@@ -32,7 +32,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
-
+    $time_start = microtime(true);
     echo '<h1>Insert new equipment</h1>';
     echo '<form method="post" action="">';
         echo '<label for="type">Type: </label>';
@@ -58,6 +58,12 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
         echo '<input type="text" name="serial_num" id="serial_num">';
         echo '<button name="submit" value="submit" type="submit">Submit</button>';
     echo '</form>';
+
+    $time_end = microtime(true);
+    $seconds = $time_end - $time_start;
+    $execution_time = ($seconds) / 60;
+
+    echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 }
 
 

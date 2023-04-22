@@ -27,11 +27,18 @@ if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
 
     echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 } else {
+    $time_start = microtime(true);
     echo '<h2>Insert new type</h2>';
     echo '<form method="post" action="">';
         echo '<label for="type">Type:</label>';
         echo '<input name="type" type="text" class="input-field">';
         echo '<button type="submit" name="submit" value="submit" class="submit-button">Submit</button>';
     echo '</form>';
+
+    $time_end = microtime(true);
+    $seconds = $time_end - $time_start;
+    $execution_time = ($seconds) / 60;
+
+    echo "<p>Execution time: $execution_time minutes or $seconds seconds. </p>";
 }
 ?>
