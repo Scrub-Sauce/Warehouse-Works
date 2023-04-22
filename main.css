@@ -13,9 +13,9 @@ body {
 
 a {
     text-decoration: none;
+    margin: 1rem;
     padding: 1rem;
     font-size: 2rem;
-    border: solid black 0.1rem;
     border-radius: 0.5rem;
     transition: all 0.3s;
     background-color: rgb(29, 141, 172);
