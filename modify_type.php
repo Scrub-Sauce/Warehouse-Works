@@ -30,7 +30,7 @@
         }elseif($name_change && $status_change){
             echo "<h3>ID: $t_query name and status have been updated.</h3>";
         }else{
-            echo '<h3>No Values Changed.</h3>'
+            echo '<h3>No Values Changed.</h3>';
         }
 
         
