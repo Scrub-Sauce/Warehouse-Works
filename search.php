@@ -129,6 +129,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 } else {
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
+    echo '<h2>Search Database</h2>';
     echo '<div class="form-wrapper">';
         echo '<form method="post" action="">';
 
