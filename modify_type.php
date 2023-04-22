@@ -13,8 +13,8 @@
             $name_change = false;
         }
 
-        if($s_query == 0) {
-            $staus_change = false;
+        if($s_query == '0') {
+            $status_change = false;
         }
 
         echo "s_query = '$s_query' status_change:";
