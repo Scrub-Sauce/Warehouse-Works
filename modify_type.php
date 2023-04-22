@@ -28,9 +28,9 @@
         }elseif(!$name_change && $status_change){
             echo '<p>Status change only</p>';
         }elseif($name_change && $status_change){
-            echo '<p>Name and Status Change</p>';
+            echo "<h3>ID: $t_query name and status have been updated.</h3>";
         }else{
-            echo '<p>Change None.</p>';
+            echo '<h3>No Values Changed.</h3>'
         }
 
         
