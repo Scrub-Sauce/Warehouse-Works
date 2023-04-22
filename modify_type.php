@@ -24,10 +24,22 @@
         echo $name_change ? 'true' : 'false';
         $db = db_iconnect('warehouse-works');
         if($name_change && !$status_change){
-            echo '<p>Name change only</p>';
+            $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query";
+            $db->query($sql) or
+                die("Something went wrong with $sql<br>".$db->error);
+            echo "<h3>ID: $t_query name has been updated.</h3>";
         }elseif(!$name_change && $status_change){
-            echo '<p>Status change only</p>';
+            $sql = "UPDATE `equipment` SET `status` = '$s_query' WHERE `type` = '$t_query";
+            db->query($sql) or
+                die("Something went wrong with $sql<br>".$db->error);
+            echo "<h3>ID: $t_query status has been updated.</h3>";
         }elseif($name_change && $status_change){
+            $sql = "UPDATE `equipment` SET `status` = '$s_query' WHERE `type` = '$t_query";
+            $db->query($sql) or
+                die("Something went wrong with $sql<br>".$db->error);
+            $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query";
+            $db->query($sql) or
+                die("Something went wrong with $sql<br>".$db->error);
             echo "<h3>ID: $t_query name and status have been updated.</h3>";
         }else{
             echo '<h3>No Values Changed.</h3>';
