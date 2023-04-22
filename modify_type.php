@@ -19,9 +19,9 @@
             echo '<select name="type" id="type">';
             $db = db_iconnect('warehouse-works');
             $sql = "SELECT * FROM `type`";
-            $result = $db->query($sql) or 
-                die ("Something went wrong with $sql<br>".$db->error);
-            while($data = $results->fetch_array(MYSQLI_ASSOC)){
+            $result = $db->query($sql) or
+                die("Something went wrong with: $sql<br>".$db->error);
+            while($data=$result->fetch_array(MYSQLI_ASSOC)){
                 echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
             }
             echo '</select>';
