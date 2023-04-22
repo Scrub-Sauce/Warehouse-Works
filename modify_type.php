@@ -20,18 +20,22 @@
         echo '<form method="post" action="">';
             echo '<label for="type">Type: </label>';
             echo '<select name="type" id="type">';
-            $db = db_iconnect('warehouse-works');
-            $sql = "SELECT * FROM `type`";
-            $result = $db->query($sql) or
-                die("Something went wrong with: $sql<br>".$db->error);
-            while($data=$result->fetch_array(MYSQLI_ASSOC)){
-                echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-            }
+                $db = db_iconnect('warehouse-works');
+                $sql = "SELECT * FROM `type`";
+                $result = $db->query($sql) or
+                    die("Something went wrong with: $sql<br>".$db->error);
+                while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                    echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+                }
             echo '</select>';
             echo '<label for="status">Status: </label>';
             echo '<select name="status" id="status">';
-                echo '<option value="status_active">Active</option>';
-                echo '<option value="status_inactive">Inactive</option>';
+                $sql = "SELECT * FROM `status`";
+                $result = $db->query($sql) or
+                    die("Something went wrong with: $sql<br>".$db->error);
+                while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                    echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+                }
             echo '</select>';
             echo '<label for="new_type">New Type: </label>';
             echo '<input type="text" name="new_type">';
