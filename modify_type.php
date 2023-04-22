@@ -19,7 +19,7 @@
 
         $db = db_iconnect('warehouse-works');
         $sql="Set autocommit=0";
-        $dblink->query($sql) or
+        $db->query($sql) or
             die("Something went wrong with $sql<br>\n".$dblink->error);
         if($name_change && !$status_change){
             $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
@@ -43,7 +43,7 @@
             echo '<h3>No Values Changed.</h3>';
         }
         $sql="Commit;SET autocommit=1";
-        $dblink->query($sql) or
+        $db->query($sql) or
             die("Something went wrong with $sql<br>\n".$dblink->error);
 
         $time_end = microtime(true);
