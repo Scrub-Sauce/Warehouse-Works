@@ -129,57 +129,67 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
 } else {
     $db = db_iconnect('warehouse-works');
     $time_start = microtime(true);
+    echo '<div class="form-wrapper">';
+        echo '<form method="post" action="">';
 
-    echo '<form method="post" action="">';
+        echo "<label for='serial_num'>Serial Number:";
+        echo "<input type='text' name='serial_num' id='serial_num' />";
 
-    echo "<label for='serial_num'>Serial Number:";
-    echo "<input type='text' name='serial_num' id='serial_num' />";
+        echo '<label for="manufacture">Manufacture:</label>';
+        echo '<select name="manufacture" id="manufacture">';
+            echo '<option value="%">Any</option>';
+            $sql = "SELECT * FROM `manufacture`";
+            $result = $db->query($sql) or
+                die("Something went wrong with: $sql<br>".$db->error);
+            while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+            }
+        // End of select
+        echo '</select>';
 
-    echo '<label for="manufacture">Manufacture:</label>';
-    echo '<select name="manufacture" id="manufacture">';
-        echo '<option value="%">Any</option>';
-        $sql = "SELECT * FROM `manufacture`";
-        $result = $db->query($sql) or
-            die("Something went wrong with: $sql<br>".$db->error);
-        while($data=$result->fetch_array(MYSQLI_ASSOC)){
-            echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-        }
-    // End of select
-    echo '</select>';
+        echo '<label for="type">Type:</label>';
+        echo '<select name="type" id="type">';
+            echo '<option value="%">Any</option>';
+            $sql = "SELECT * FROM `type`";
+            $result = $db->query($sql) or
+                die("Something went wrong with: $sql<br>".$db->error);
+            while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+            }
+        // End of select
+        echo '</select>';
 
-    echo '<label for="type">Type:</label>';
-    echo '<select name="type" id="type">';
-        echo '<option value="%">Any</option>';
-        $sql = "SELECT * FROM `type`";
-        $result = $db->query($sql) or
-            die("Something went wrong with: $sql<br>".$db->error);
-        while($data=$result->fetch_array(MYSQLI_ASSOC)){
-            echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
-        }
-    // End of select
-    echo '</select>';
+        echo "<label for='num'>Max number of results:</label>";
+        echo '<select name="num" id="num">';
+            echo '<option value="10">10</option>';
+            echo '<option value="25">25</option>';
+            echo '<option value="50">50</option>';
+            echo '<option value="100">100</option>';
+            echo '<option value="250">250</option>';
+            echo '<option value="500">500</option>';
+            echo '<option value="1000">1000</option>';
+        echo '</select>';
 
-    echo "<label for='num'>Max number of results:</label>";
-    echo '<select name="num" id="num">';
-        echo '<option value="10">10</option>';
-        echo '<option value="25">25</option>';
-        echo '<option value="50">50</option>';
-        echo '<option value="100">100</option>';
-        echo '<option value="250">250</option>';
-        echo '<option value="500">500</option>';
-        echo '<option value="1000">1000</option>';
-    echo '</select>';
+        echo '<button type="submit" name="submit" value="submit">Submit</button>';
 
-    echo '<button type="submit" name="submit" value="submit">Submit</button>';
-
-    // End of Form
-    echo '</form>';
-
-    echo '<div class="inert-actions">';
-        echo '<a href="./insert_type.php">Add Type</a>';
-        echo '<a href="./insert_manufacture.php">Add Manufacture</a>';
-        echo '<a href="./insert_equipment.php">Add Equipment</a>';
+        // End of Form
+        echo '</form>';
     echo '</div>';
+    
+    echo '<div class="nav-wrapper">'
+        echo '<div class="inert-actions">';
+            echo '<a href="./insert_type.php">Add Type</a>';
+            echo '<a href="./insert_manufacture.php">Add Manufacture</a>';
+            echo '<a href="./insert_equipment.php">Add Equipment</a>';
+        echo '</div>';
+
+        echo '<div class="modify-actions">';
+            echo '<a href="./modify_type">Update Type</a>';
+            echo '<a href="./modify_manufacture.php">Update Manufacture</a>';
+            echo '<a href="./modify_equipment.php">Update Equipment</a>';
+        echo '</div>';
+    echo '</div>';
+    
 
     $time_end = microtime(true);
     $seconds = $time_end - $time_start;
