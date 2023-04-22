@@ -51,7 +51,7 @@ p {
 }
 
 table {
-    border: solid grey 0.1rem;
+    border: solid rgb(173, 173, 173) 0.1rem;
     border-radius: 0.5rem;
     font-size: 1.6rem;
 }
@@ -60,7 +60,7 @@ h2 {
     font-size: 3rem;
 }
 
-table:nth-child(even) {
+tr:nth-child(even) {
     background-color: rgb(197, 197, 197);
 }
 

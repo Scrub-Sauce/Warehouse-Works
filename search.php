@@ -90,7 +90,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         $result = $db->query($sql) or 
             die("Something went wrong with $sql<br>".$db->error);
         
-            echo '<h3>Search by manufacture '.$manufacture.' showing '.$n_query.' results.</h3>';
+            echo '<h2>Search by manufacture '.$manufacture.' showing '.$n_query.' results.</h2>';
             echo '<table>';
         echo '<tr><th>Auto ID</th><th>Type</th><th>Serial Number</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
@@ -107,7 +107,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
             die("Something went wrong with $sql<br>".$db->error);
         
             echo '<h3>Search by manufacture '.$manufacture.' type '.$type.' showing '.$n_query.' results.</h3>';
-            echo '<table>';
+        echo '<table>';
         echo '<tr><th>Auto ID</th><th>Type</th><th>Manufacture</th><th>Serial Number</th></tr>';
         while($data=$result->fetch_array(MYSQLI_ASSOC)){
             echo '<tr>';
