@@ -10,7 +10,7 @@ body {
     padding: 0rem;
     display:flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -35,6 +35,7 @@ a {
  }
 
  input, select, option {
+    padding: 0.5rem;
     height: 2rem;
     font-size: 1.6rem;
  }
