@@ -14,6 +14,12 @@ body {
     align-items: center;
 }
 
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 a {
     text-decoration: none;
     margin: 1rem;
@@ -24,6 +30,8 @@ a {
     background-color: rgb(29, 141, 172);
     color: white;
 }
+
+
 
 a:hover {
     background-color: rgb(28, 175, 28);

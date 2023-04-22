@@ -177,13 +177,13 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
     echo '</div>';
     
     echo '<div class="nav-wrapper">';
-        echo '<div class="inert-actions">';
+        echo '<div class="links">';
             echo '<a href="./insert_type.php">Add Type</a>';
             echo '<a href="./insert_manufacture.php">Add Manufacture</a>';
             echo '<a href="./insert_equipment.php">Add Equipment</a>';
         echo '</div>';
 
-        echo '<div class="modify-actions">';
+        echo '<div class="link">';
             echo '<a href="./modify_type">Update Type</a>';
             echo '<a href="./modify_manufacture.php">Update Manufacture</a>';
             echo '<a href="./modify_equipment.php">Update Equipment</a>';
