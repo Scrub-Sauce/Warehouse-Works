@@ -34,6 +34,7 @@
                 $result = $db->query($sql) or
                     die("Something went wrong with: $sql<br>".$db->error);
                 while($data=$result->fetch_array(MYSQLI_ASSOC)){
+                    echo '<option value="0">No Change</option>';
                     echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
                 }
             echo '</select>';
