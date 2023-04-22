@@ -17,16 +17,16 @@
             $staus_change = TRUE;
         }
 
-        $db = db_iconnect('warehouse-works');
-        if($name_change && !$status_change){
-            echo '<p>Name change only</p>';
-        }elseif(!$name_change && $status_change){
-            echo '<p>Status change only</p>';
-        }elseif($name_change && $status_change){
-            echo '<p>Name and Status Change</p>'
-        }else{
-            echo '<p>Change None.</p>';
-        }
+        // $db = db_iconnect('warehouse-works');
+        // if($name_change && !$status_change){
+        //     echo '<p>Name change only</p>';
+        // }elseif(!$name_change && $status_change){
+        //     echo '<p>Status change only</p>';
+        // }elseif($name_change && $status_change){
+        //     echo '<p>Name and Status Change</p>'
+        // }else{
+        //     echo '<p>Change None.</p>';
+        // }
 
         
 
