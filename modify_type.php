@@ -9,8 +9,6 @@
         $status_change = true;
         $name_change = true;
 
-        echo "'$name_change'";
-
         if($nt_query == ''){
             $name_change = false;
         }
