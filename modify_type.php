@@ -1,5 +1,5 @@
 <?php
-    include 'db_connect';
+    include 'db_connect.php';
 
     if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
         $t_query = $_POST['type'];
