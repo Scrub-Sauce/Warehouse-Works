@@ -6,9 +6,31 @@
         $nt_query = $_POST['new_type'];
         $s_query = $_POST['status'];
 
-        $db = db_iconnect('warehouse-works');
+        $status_change = FALSE;
+        $name_change = FALSE;
 
-        // $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = $t_query";
+        if($nt_query != ''){
+            $name_change = TRUE;
+        }
+
+        if($s_query != 0) {
+            $staus_change = TRUE;
+        }
+
+        $db = db_iconnect('warehouse-works');
+        if($name_change && !$status_change){
+            echo '<p>Name change only</p>';
+        }elseif(!$name_change && $status_change){
+            echo '<p>Status change only</p>';
+        }elseif($name_change && $status_change){
+            echo '<p>Name and Status Change</p>'
+        }else{
+            echo '<p>Change None.</p>';
+        }
+
+        
+
+        // 
         // $db->query($sql) or
         //     die("Something went wrong with $sql<br>".$db->error);
 
