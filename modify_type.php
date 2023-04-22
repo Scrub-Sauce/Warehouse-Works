@@ -5,7 +5,8 @@
         $t_query = $_POST['type'];
         $nt_query = $_POST['new_type'];
 
-        // $db = db_iconnect('warehouse_works');
+        $db = db_iconnect('warehouse-works');
+        $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = $t_query";
         // $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
         // // $db->query($sql) or 
         // //     die("Something went wrong with $sql<br>".$db->error);
