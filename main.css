@@ -1,11 +1,9 @@
 html {
     font-size: 62.5%;
-    height: 100%;
     width: 100vw;
 }
 
 body {
-    height: 100%;
     margin: 0rem;
     padding: 0rem;
     display:flex;
