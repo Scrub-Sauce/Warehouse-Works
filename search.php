@@ -76,7 +76,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
             echo '<tr>';
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
-                echo "<td>$stat_map[$data['status']]</td>";
+                echo '<td>'.$stat_map[$data['status']].'</td>';
             echo '</tr>';
         }
         echo '</table>';
@@ -93,7 +93,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$m_map[$data['manufacture']].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
-                echo "<td>$stat_map[$data['status']]</td>";
+                echo '<td>'.$stat_map[$data['status']].'</td>';
             echo '</tr>';
         }
         echo '</table>';
@@ -110,7 +110,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
                 echo '<td>'.$data['auto_id'].'</td>';
                 echo '<td>'.$t_map[$data['type']].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
-                echo "<td>$stat_map[$data['status']]</td>";
+                echo '<td>'.$stat_map[$data['status']].'</td>';
             echo '</tr>';
         }
         echo '</table>';
@@ -128,7 +128,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
                 echo '<td>'.$t_map[$data['type']].'</td>';
                 echo '<td>'.$m_map[$data['manufacture']].'</td>';
                 echo '<td>'.$data['serial_number'].'</td>';
-                echo "<td>$stat_map[$data['status']]</td>";
+                echo '<td>'.$stat_map[$data['status']].'</td>';
             echo '</tr>';
         }
         echo '</table>';
