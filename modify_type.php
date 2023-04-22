@@ -29,8 +29,8 @@
             }
             echo '</select>';
             echo '<label for="status">Status: </label>';
-            echo '<select name="status" id="status>';
-                echo '<option value="active">Active</option>';;
+            echo '<select name="status" id="status">';
+                echo '<option value="active">Active</option>';
                 echo '<option value="inactive">Inactive</option>';
             echo '</select>';
             echo '<label for="new_type">New Type: </label>';
