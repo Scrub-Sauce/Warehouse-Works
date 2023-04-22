@@ -5,11 +5,12 @@
         $t_query = $_POST['type'];
         $nt_query = $_POST['new_type'];
 
-        $db = db_iconnect('warehouse_works');
-        $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
-        // $db->query($sql) or 
-        //     die("Something went wrong with $sql<br>".$db->error);
-        echo "<h2>type has been changed to $nt_query</h2>";
+        // $db = db_iconnect('warehouse_works');
+        // $sql = "UPDATE `type` SET `name` = '$nt_query' WHERE `auto_id` = '$t_query'";
+        // // $db->query($sql) or 
+        // //     die("Something went wrong with $sql<br>".$db->error);
+
+        echo "<h2>type has been changed at Auto ID: $t_query to $nt_query</h2>";
 
 
     } else {
