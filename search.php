@@ -176,7 +176,7 @@ if(isset($_POST['submit']) && ($_POST['submit'] == "submit"))
         echo '</form>';
     echo '</div>';
     
-    echo '<div class="nav-wrapper">'
+    echo '<div class="nav-wrapper">';
         echo '<div class="inert-actions">';
             echo '<a href="./insert_type.php">Add Type</a>';
             echo '<a href="./insert_manufacture.php">Add Manufacture</a>';
