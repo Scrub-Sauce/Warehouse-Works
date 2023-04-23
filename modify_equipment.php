@@ -26,8 +26,6 @@ echo '<html lang="en">';
         $status_change = true;
         $serial_change = true;
 
-
-        if()
         if($serial_query == ''){
             $serial_change = false;
         }
