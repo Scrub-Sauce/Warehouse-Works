@@ -38,17 +38,17 @@ echo '<html lang="en">';
         $db->query($sql) or
             die("Something went wrong with $sql<br>".$db->error);
             
-        if($name_change && !$status_change){
+        if($serial_change && !$status_change){
             $sql = "UPDATE `equipment` SET `type` = '$t_query', `manufacture` = '$m_query', `serial_number` = '$serial_query' WHERE `auto_id` = '$id_query'";
             $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
             echo "<h2>ID: $id_query serial number, type, and manufacture has been updated.</h2>";
-        }elseif(!$name_change && $status_change){
+        }elseif(!$serial_change && $status_change){
             $sql = "UPDATE `equipment` SET `status` = '$s_query' WHERE `auto_id` = '$id_query'";
             $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
             echo "<h2>ID: $id_query status has been updated.</h2>";
-        }elseif($name_change && $status_change){
+        }elseif($serial_change && $status_change){
             $sql = "UPDATE `equipment` SET `type` = '$t_query', `manufacture` = '$m_query', `serial_number` = '$serial_query', `status` = '$s_query' WHERE `auto_id` = '$id_query'";
             $db->query($sql) or
                 die("Something went wrong with $sql<br>".$db->error);
