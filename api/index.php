@@ -1,2 +1,2 @@
 <?php
-echo '<h2>API Main location</h2>';
+echo '<h2>Index Page</h2>';
