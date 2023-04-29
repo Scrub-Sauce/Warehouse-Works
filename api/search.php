@@ -1,21 +1,16 @@
 <?php
 include ('db_connect.php');
 
-$db = db_iconnect('warehouse-works');
-
-$t_query = $_REQUEST['type'];
-echo "type: $t_query";
-
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
-    $output[] = "MSG: Type data NULL";
-    $output[] = "Action: Resend Type data";
+    $output[] = "MSG: Manufacture data NULL";
+    $output[] = "Action: Resend Manufacture data";
     $responseData = json_encode($output);
     echo "$responseData";
     die();
-}else{
-    $t_query = $_REQUEST['type'];
 }
+
+$t_query = $_REQUEST['type'];
 
 if(!isset($_REQUEST['manufacture'])){
     $output[] = "Status: Error";
@@ -53,6 +48,7 @@ $s_query = $_REQUEST['serial_num'];
 
 $info[] = array();
 
+$db = db_iconnect('warehouse-works');
 $time_start = microtime(true);
 // Create a map of all manufacturers so we don't need to make additional queries.
 $sql = "SELECT `auto_id`, `name` FROM `manufacture`";
