@@ -8,9 +8,11 @@ if(!isset($_REQUEST['type'])){
     $responseData = json_encode($output);
     echo "$responseData";
     die();
+}else{
+    $t_query = $_REQUEST['type'];
 }
 
-$t_query = $_REQUEST['type'];
+echo "$t_query";
 
 if(!isset($_REQUEST['manufacture'])){
     $output[] = "Status: Error";
