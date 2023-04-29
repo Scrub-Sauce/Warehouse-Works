@@ -60,6 +60,7 @@ if($s_query == 'all'){
 }
 
 $sql = "SELECT * FROM `equipment` WHERE $type AND $manufacture AND $status AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
+echo("$sql");
 $result = $db->query($sql) or
     die('Something went wrong with $sql'.$db->error);
 while($data = $result->fetch_array(MYSQLI_ASSOC)){
