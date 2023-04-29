@@ -1,11 +1,15 @@
 <?php
-header('Content-Type: application/json');
-header('HTTP/1.1 200 OK');
+//header('Content-Type: application/json');
+//header('HTTP/1.1 200 OK');
+//
+//$output[] = 'Status: API Main';
+//$output[] = 'MSG: Primary Endpoint Reached';
+//$output[] = 'Action: none';
+//
+//$responseData = json_encode($output);
+//
+//echo $responseData;
 
-$output[] = 'Status: API Main';
-$output[] = 'MSG: Primary Endpoint Reached';
-$output[] = 'Action: none';
+$url = $_SERVER['REQUEST_URI'];
 
-$responseData = json_encode($output);
-
-echo $responseData;
+echo "<h3>$url</h3>";
