@@ -1,5 +1,5 @@
 <?php
-include ($_SERVER['DOCUMENT_ROOT'].'/db_connect.php');
+include ($_SERVER['DOCUMENT_ROOT'].'/../db_connect.php');
 
 $db = db_iconnect('warehouse-works');
 
