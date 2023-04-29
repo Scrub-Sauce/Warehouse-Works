@@ -26,7 +26,7 @@ echo "</pre>";
 $endPoint = $pathComponents[1];
 
 switch($endPoint) {
-    case "search_manufacturer":
+    case "search_manufacture":
         echo "<h3>Load Manufactures Endpoint";
         break;
 }
