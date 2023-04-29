@@ -15,3 +15,6 @@ echo "<h3>$url</h3>";
 
 $path = parse_url($url, PHP_URL_PATH);
 echo "<h3>$path</h3>";
+
+$pathComponents = explode("/", trim($path,"/"));
+echo '<h3>Number of URL components:'.count($pathComponents).'</h3>';
