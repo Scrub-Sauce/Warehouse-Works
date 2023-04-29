@@ -1,5 +1,5 @@
 <?php
-include ("../db_connect.php");
+include ($_SERVER['DOCUMENT_ROOT'].'/db_connect.php');
 
 $db = db_iconnect('warehouse-works');
 
@@ -10,6 +10,7 @@ $s_query = $_REQUEST['serial_num'];
 $stat_query = $_REQUEST['status'];
 $info[] = array();
 
+$time_start = microtime(true);
 // Create a map of all manufacturers so we don't need to make additional queries.
 $sql = "SELECT `auto_id`, `name` FROM `manufacture`";
 $result = $db->query($sql) or
