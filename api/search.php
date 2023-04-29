@@ -12,8 +12,6 @@ if(!isset($_REQUEST['type'])){
     $t_query = $_REQUEST['type'];
 }
 
-echo "$t_query";
-
 if(!isset($_REQUEST['manufacture'])){
     $output[] = "Status: Error";
     $output[] = "MSG: Manufacture data NULL";
