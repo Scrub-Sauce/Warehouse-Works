@@ -3,8 +3,8 @@ include ('db_connect.php');
 
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
-    $output[] = "MSG: Manufacture data NULL";
-    $output[] = "Action: Resend Manufacture data";
+    $output[] = "MSG: Type data NULL";
+    $output[] = "Action: Resend Type data";
     $responseData = json_encode($output);
     echo "$responseData";
     die();
