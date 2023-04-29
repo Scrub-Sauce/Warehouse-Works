@@ -10,6 +10,10 @@ $endPoint = $pathComponents[1];
 
 switch($endPoint) {
     case "search":
+        echo "$path";
+        echo "<pre>";
+        print_r($pathComponents);
+        echo "</pre>";
         include("search.php");
         break;
 
