@@ -3,6 +3,9 @@ include ('db_connect.php');
 
 $db = db_iconnect('warehouse-works');
 
+$t_query = $_REQUEST['type'];
+echo "$t_query";
+
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
     $output[] = "MSG: Type data NULL";
