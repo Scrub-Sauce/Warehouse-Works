@@ -29,4 +29,6 @@ switch($endPoint) {
     case "search_manufacture":
         echo "<h3>Load Manufactures Endpoint";
         break;
+    default:
+        echo "<h3>Invalid endpoint: $endPoint</h3>";
 }
