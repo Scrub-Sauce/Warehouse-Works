@@ -56,10 +56,10 @@ foreach($result as $row){
 if($s_query == 'all'){
     $status = "`status` LIKE '%'";
 }else{
-    $status = "`status` = '$stat_query";
+    $status = "`status` = '$stat_query'";
 }
 
-$sql = "SELECT * FROM `equipment` WHERE $type AND $manufacture AND $status AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
+$sql = "SELECT * FROM `equipment` WHERE $type AND $manufacture AND $status AND `serial_number` LIKE '%$s_query%' LIMIT 10";
 echo("$sql");
 $result = $db->query($sql) or
     die('Something went wrong with $sql'.$db->error);
