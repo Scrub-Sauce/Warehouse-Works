@@ -1,6 +1,15 @@
 <?php
 include ('db_connect.php');
 
+if(count($_REQUEST) != 5){
+    $output[] = "Status: Error";
+    $output[] = "MSG: Invalid number of arguments";
+    $output[] = "Action: Only send manufacture data";
+    $responseData = json_encode($output);
+    echo "$responseData";
+    die();
+}
+
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
     $output[] = "MSG: Type data NULL";
@@ -44,7 +53,16 @@ if(!isset($_REQUEST['num'])){
     $n_query = $_REQUEST['num'];
 }
 
-$s_query = $_REQUEST['serial_num'];
+if(!isset($_REQUEST['serial_num'])){
+    $output[] = "Status: Error";
+    $output[] = "MSG: Serial_num data NULL";
+    $output[] = "Action: Resend serial_num data";
+    $responseData = json_encode($output);
+    echo "$responseData";
+    die();
+}else{
+    $s_query = $_REQUEST['serial_num'];
+}
 
 $info = array();
 

@@ -3,7 +3,7 @@ include ('db_connect.php');
 
 if(count($_REQUEST) != 1){
     $output[] = "Status: Error";
-    $output[] = "MSG: Too many arguments";
+    $output[] = "MSG: Invalid number of arguments";
     $output[] = "Action: Only send manufacture data";
     $responseData = json_encode($output);
     echo "$responseData";
