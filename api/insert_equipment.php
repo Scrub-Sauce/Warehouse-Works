@@ -100,6 +100,7 @@ if(($data == NULL) && ($t_found) && ($m_found)){
     $output[] = "MSG: Equipment successfully added.";
     $output[] = "Action: $execution_time";
     $responseData = json_encode($output);
+    echo "$responseData";
 }else{
     $output[] = "Status: Error";
     $output[] = "MSG: An equipment with the serial_num $s_query already exists";
