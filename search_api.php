@@ -85,20 +85,6 @@ echo '<body>';
             echo '</form>';
         echo '</div>';
 
-        echo '<div class="nav-wrapper">';
-            echo '<div class="links">';
-                echo '<a href="./insert_type.php">Add Type</a>';
-                echo '<a href="./insert_manufacture.php">Add Manufacture</a>';
-                echo '<a href="./insert_equipment.php">Add Equipment</a>';
-            echo '</div>';
-
-            echo '<div class="link">';
-                echo '<a href="./modify_type.php">Update Type</a>';
-                echo '<a href="./modify_manufacture.php">Update Manufacture</a>';
-                echo '<a href="./modify_equipment.php">Update Equipment</a>';
-            echo '</div>';
-        echo '</div>';
-
         if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
             echo "<h3>Search Results</h3>";
             $t_query = $_POST['type'];
