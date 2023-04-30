@@ -92,7 +92,7 @@ echo '<body>';
 
             $curl = curl_init();
             curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://warehouse-works.systems/api/search?type=$t_query&manufacture=$m_query&status=$stat_query&num=$n_query",
+                CURLOPT_URL => "https://warehouse-works.systems/api/search?type=$t_query&manufacture=$m_query&status=$stat_query&serial_num=$s_query&num=$n_query",
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,

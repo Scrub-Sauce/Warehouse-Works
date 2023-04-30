@@ -91,9 +91,5 @@ td {
     text-align: center;
 }
 
-tr:first-child {
-    border-top: solid black 0.3rem;
-}
-
 
 
