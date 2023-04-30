@@ -115,9 +115,23 @@ echo '<body>';
             if($status === 'Success'){
                 $tmp = explode(':', $results[1]);
                 $data = json_decode($tmp[1], true);
-                echo "<pre>";
-                    print_r($data);
-                echo "</pre>";
+                if (count($data) == 0) {
+                    echo '<h3>No results found.</h3>';
+                }else{
+                    echo "<table>";
+                    echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
+                    echo "<tbody>";
+                    foreach($data as $key=>$value){
+                        $tmp = explode(",",$value);
+                        echo"<tr>";
+                            echo "<td>$tmp[0]</td>";
+                            echo "<td>$tmp[1]</td>";
+                            echo "<td>$tmp[2]</td>";
+                            echo "<td>$tmp[3]</td>";
+                        echo "</tr>";
+                    }
+                    echo "</tbody>";
+                }
             }
         }
 
