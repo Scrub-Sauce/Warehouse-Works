@@ -50,6 +50,8 @@ $result = $db->query($sql) or
     die("Something went wrong with $sql<br>".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
+echo "'$data'";
+
 //if($data ==NULL){
 //    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
 //    $db->query($sql) or
