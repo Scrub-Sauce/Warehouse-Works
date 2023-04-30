@@ -128,6 +128,7 @@ echo '<body>';
                         echo "</tr>";
                     }
                     echo "</tbody>";
+
                     $time = explode(':', $results[2]);
                     echo "<h3>Execution Time: $time[1] seconds</h3>";
                 }
