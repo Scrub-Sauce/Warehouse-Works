@@ -119,6 +119,9 @@ echo '<body>';
                     echo "<pre>";
                     print_r($time);
                     echo "</pre>";
+                    $execution_time = trim($time);
+                    echo "<h3>$execution_time</h3>";
+
                     echo "<table>";
                     echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
                     echo "<tbody>";
