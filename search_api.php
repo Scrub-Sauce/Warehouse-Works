@@ -116,7 +116,7 @@ echo '<body>';
                 $tmp = explode(':', $results[1]);
                 $data = json_decode($tmp);
                 echo "<pre>";
-                print_r($data);
+                echo "$data";
                 echo "</pre>";
             }
         }
