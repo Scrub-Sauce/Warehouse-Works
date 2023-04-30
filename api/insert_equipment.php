@@ -65,6 +65,8 @@ if($data == NULL){
     echo "<pre>";
     print_r($data);
     echo "</pre>";
+    $m_query = $data['auto_id'];
+    echo "$m_query";
     $m_found = true;
 }
 
