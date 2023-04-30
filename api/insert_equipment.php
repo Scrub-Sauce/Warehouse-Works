@@ -1,14 +1,14 @@
 <?php
 $time_start = microtime(true);
 
-if(count($_REQUEST) != 3){
-    $output[] = "Status: Error";
-    $output[] = "MSG: Invalid number of arguments";
-    $output[] = "Action: type, manufacture, and serial_num are the only accepted data";
-    $responseData = json_encode($output);
-    echo "$responseData";
-    die();
-}
+//if(count($_REQUEST) != 3){
+//    $output[] = "Status: Error";
+//    $output[] = "MSG: Invalid number of arguments";
+//    $output[] = "Action: type, manufacture, and serial_num are the only accepted data";
+//    $responseData = json_encode($output);
+//    echo "$responseData";
+//    die();
+//}
 
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
