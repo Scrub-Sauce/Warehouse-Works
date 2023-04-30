@@ -66,8 +66,8 @@ if($data == NULL){
     foreach($result as $row){
         $m_map[$row['auto_id']] = $row['name'];
     }
-    $m_query = array_search($m_query, $m_map);
-    echo "'$m_query'";
+    $m_key = array_search($m_query, $m_map);
+    echo "'$m_key'";
     $m_found = true;
 }
 
