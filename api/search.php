@@ -107,7 +107,7 @@ $result = $db->query($sql) or
     die('Something went wrong with $sql'.$db->error);
 while($data = $result->fetch_array(MYSQLI_ASSOC)){
     $serial_number = trim($data['serial_number']);
-    $info[] = '"'.$t_map[$data['type']].','.$m_map[$data['manufacture']].','.$serial_number.','.$stat_map[$data['status']].'"';
+    $info[] = array($t_map[$data['type']], $m_map[$data['manufacture']], $serial_number, $stat_map[$data['status']]);
 }
 $infoData = json_encode($info);
 
