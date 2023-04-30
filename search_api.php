@@ -110,7 +110,7 @@ echo '<body>';
             }else{
                 $results = json_decode($response, true);
             }
-            $tmp = explode(':', results[0]);
+            $tmp = explode(':', $results[0]);
             $status = trim($tmp[1]);
             if($status === 'Success'){
                 echo "<p>Status was a success</p>";
