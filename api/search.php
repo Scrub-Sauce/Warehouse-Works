@@ -94,7 +94,7 @@ foreach($result as $row){
 }
 
 // Check value of status
-if($s_query == 'all'){
+if($stat_query == 'all'){
     $status = "`status` LIKE '%'";
 }else{
     $key = array_search($stat_query, $stat_map);
