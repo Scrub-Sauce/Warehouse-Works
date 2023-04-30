@@ -115,11 +115,11 @@ echo '<body>';
                 if (count($data) == 0) {
                     echo '<h3>No results found.</h3>';
                 }else{
-                    $tmp = explose(':', $results[2]);
+                    $time = explose(':', $results[2]);
                     echo "<pre>";
-                    print_r($tmp);
+                    print_r($time);
                     echo "</pre>";
-                    $execution_time = trim($tmp[1]);
+                    $execution_time = trim($time[1]);
                     echo "<h3>Execution Time: $execution_time seconds</h3>";
                     echo "<table>";
                     echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
