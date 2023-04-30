@@ -113,7 +113,10 @@ echo '<body>';
             $tmp = explode(':', $results[0]);
             $status = trim($tmp[1]);
             if($status === 'Success'){
-                echo "<p>Status was a success</p>";
+                $tmp = explode(':', $results[1]);
+                echo "<pre>";
+                print_r($tmp);
+                echo "</pre>";
             }
         }
 
