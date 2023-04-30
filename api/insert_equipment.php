@@ -12,8 +12,8 @@ $time_start = microtime(true);
 
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
-    $output[] = "MSG: Manufacture data NULL";
-    $output[] = "Action: Resend manufacture data";
+    $output[] = "MSG: Type data NULL";
+    $output[] = "Action: Resend type data";
     $responseData = json_encode($output);
     echo "$responseData";
     die();
@@ -34,8 +34,8 @@ if(!isset($_REQUEST['manufacture'])){
 
 if(!isset($_REQUEST['serial_num'])){
     $output[] = "Status: Error";
-    $output[] = "MSG: Manufacture data NULL";
-    $output[] = "Action: Resend manufacture data";
+    $output[] = "MSG: Serial_num data NULL";
+    $output[] = "Action: Resend Serial_num data";
     $responseData = json_encode($output);
     echo "$responseData";
     die();
