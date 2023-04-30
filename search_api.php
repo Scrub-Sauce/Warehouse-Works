@@ -130,7 +130,7 @@ echo '<body>';
                     echo "</tbody>";
                     $tmp = explose(':', $results[2]);
                     $execution_time = trim($tmp[1]);
-                    echo "<h3>$execution_time</h3>";
+                    echo "<h3>Execution Time: $execution_time seconds</h3>";
                 }
             }
         }
