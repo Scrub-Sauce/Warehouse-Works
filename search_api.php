@@ -115,6 +115,10 @@ echo '<body>';
                 if (count($data) == 0) {
                     echo '<h3>No results found.</h3>';
                 }else{
+                    $time = explode(':', $results[2]);
+                    echo "<pre>";
+                    print_r($time);
+                    echo "</pre>";
                     echo "<table>";
                     echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
                     echo "<tbody>";
