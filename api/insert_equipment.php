@@ -45,12 +45,15 @@ if(!isset($_REQUEST['serial_num'])){
 
 $db = db_iconnect('warehouse-works');
 $time_start = microtime(true);
-$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%$s_query%'";
+$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '$s_query'";
 $result = $db->query($sql) or
     die("Something went wrong with $sql<br>".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
 echo "'$data'";
+echo "<pre>";
+print_r($data);
+echo "</pre>";
 
 //if($data ==NULL){
 //    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
