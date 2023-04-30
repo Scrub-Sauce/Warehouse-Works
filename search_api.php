@@ -116,11 +116,7 @@ echo '<body>';
                     echo '<h3>No results found.</h3>';
                 }else{
                     $time = explode(':', $results[2]);
-                    echo "<pre>";
-                    print_r($time);
-                    echo "</pre>";
-                    $execution_time = trim($time);
-                    echo "<h3>$execution_time</h3>";
+                    echo "<h3>$time[1]</h3>";
 
                     echo "<table>";
                     echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
