@@ -110,31 +110,31 @@ echo '<body>';
             $tmp = explode(':', $results[0]);
             $status = trim($tmp[1]);
             if($status === 'Success'){
-                $tmp = explode(':', $results[1]);
+                $tmp = explode(':', $results[2]);
                 echo "<pre>";
                     print_r($tmp);
                 echo "</pre>";
 
-                $data = json_decode($tmp[1], true);
-                if (count($data) == 0) {
-                    echo '<h3>No results found.</h3>';
-                }else{
-                    echo "<table>";
-                    echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
-                    echo "<tbody>";
-                    foreach($data as $key=>$value){
-                        $tmp = explode(",",$value);
-                        echo"<tr>";
-                            echo "<td>$tmp[0]</td>";
-                            echo "<td>$tmp[1]</td>";
-                            echo "<td>$tmp[2]</td>";
-                            echo "<td>$tmp[3]</td>";
-                        echo "</tr>";
-                    }
-                    echo "</tbody>";
-                    $tmp = explose(':', $results[2]);
-                    $execution_time = trim($tmp[1]);
-                    echo "<h3>Execution Time: $execution_time seconds</h3>";
+//                $data = json_decode($tmp[1], true);
+//                if (count($data) == 0) {
+//                    echo '<h3>No results found.</h3>';
+//                }else{
+//                    echo "<table>";
+//                    echo "<tr><th>Type</th><th>Manufacture</th><th>Serial Number</th><th>Status</th></tr>";
+//                    echo "<tbody>";
+//                    foreach($data as $key=>$value){
+//                        $tmp = explode(",",$value);
+//                        echo"<tr>";
+//                            echo "<td>$tmp[0]</td>";
+//                            echo "<td>$tmp[1]</td>";
+//                            echo "<td>$tmp[2]</td>";
+//                            echo "<td>$tmp[3]</td>";
+//                        echo "</tr>";
+//                    }
+//                    echo "</tbody>";
+//                    $tmp = explose(':', $results[2]);
+//                    $execution_time = trim($tmp[1]);
+//                    echo "<h3>Execution Time: $execution_time seconds</h3>";
                 }
             }
         }
