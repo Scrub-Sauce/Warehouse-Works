@@ -14,8 +14,7 @@ echo '<head>';
 echo '</head>';
 echo '<body>';
     echo '<h2>Search Database</h2>';
-    echo '<div class="form-wrapper">';
-        echo '<form method="post" action="">';
+        echo '<form method="post" action="" class="form-wrapper">';
 
             echo "<div class='input-wrapper'>";
                 echo '<label for="manufacture">Manufacture:</label>';
@@ -82,7 +81,6 @@ echo '<body>';
 
             // End of Form
             echo '</form>';
-        echo '</div>';
 
         if(isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
             echo "<h3>Search Results</h3>";
