@@ -94,7 +94,6 @@ echo '<body>';
             $stat_query = $_POST['status'];
 
             $curl = curl_init();
-            echo "<h2>https://warehouse-works.systems/api/search?type=$t_query&manufacture=$m_query&status=$stat_query&num=$n_query</h2>";
             curl_setopt_array($curl, array(
                 CURLOPT_URL => "https://warehouse-works.systems/api/search?type=$t_query&manufacture=$m_query&status=$stat_query&num=$n_query",
                 CURLOPT_RETURNTRANSFER => true,
