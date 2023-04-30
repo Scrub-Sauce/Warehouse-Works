@@ -1,5 +1,6 @@
 <?php
-include ("db_connect.php");
+include ('db_connect.php');
+
 $db = db_iconnect('warehouse-works');
 
 echo '<!DOCTYPE html>';
