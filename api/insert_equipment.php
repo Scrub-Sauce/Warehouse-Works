@@ -62,12 +62,9 @@ if($data == NULL){
     echo "$responseData";
     die();
 }else{
-    $m_map = array();
-    foreach($result as $row){
-        $m_map[$row['auto_id']] = $row['name'];
-    }
-    $m_key = array_search($m_query, $m_map);
-    echo "'$m_key'";
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
     $m_found = true;
 }
 
