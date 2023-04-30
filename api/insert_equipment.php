@@ -12,8 +12,8 @@ if(count($_REQUEST) != 3){
 
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
-    $output[] = "MSG: Type data NULL";
-    $output[] = "Action: Resend Type data";
+    $output[] = "MSG: Manufacture data NULL";
+    $output[] = "Action: Resend manufacture data";
     $responseData = json_encode($output);
     echo "$responseData";
     die();
@@ -40,7 +40,7 @@ if(!isset($_REQUEST['serial_num'])){
     echo "$responseData";
     die();
 }else{
-    $s_query = $_POST['serial_num'];
+    $s_query = $_REQUEST['serial_num'];
 }
 
 $db = db_iconnect('warehouse-works');
@@ -49,9 +49,7 @@ $result = $db->query($sql) or
     die("Something went wrong with $sql<br>".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
-echo "<p>t_query: $t_query m_query: $m_query s_query: $s_query</p";
-
-if($data == NULL) {
+if($data ==NULL){
     $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
     $db->query($sql) or
         die("Something went wrong with $sql<br>".$db->error);
@@ -64,8 +62,7 @@ if($data == NULL) {
     $output[] = "MSG: Equipment successfully added.";
     $output[] = "Action: $execution_time";
     $responseData = json_encode($output);
-    echo "$responseData";
-} else {
+}else{
     $output[] = "Status: Error";
     $output[] = "MSG: An equipment with the serial_num $s_query already exists";
     $output[] = "Action: None";
