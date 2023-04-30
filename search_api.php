@@ -130,7 +130,7 @@ echo '<body>';
                     echo "</tbody>";
 
                     $time = explode(':', $results[2]);
-                    echo "<p>Execution Time: $time[1] seconds</p>";
+                    echo "<p>Execution Time: $time[1] minutes</p>";
                 }
             }
         }
