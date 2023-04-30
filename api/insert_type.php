@@ -12,14 +12,15 @@ if(!isset($_REQUEST['type'])){
 
 $type = $_REQUEST['type'];
 
-echo "$type";
-
 $time_start = microtime(true);
 $db = db_iconnect('warehouse-works');
 $sql = "SELECT * FROM `type` WHERE `name` ='$type'";
 
-$result = $db->query($sql);
+$result = $db->query($sql) or
+    die("Something went wrong with $sql".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
+
+echo "$data";
 
 //if($data == NULL) {
 //    $sql = "INSERT INTO `type` (`name`) VALUES ('$type')";
