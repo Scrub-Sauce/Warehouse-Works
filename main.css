@@ -91,5 +91,9 @@ td {
     text-align: center;
 }
 
+tbody {
+    border-top: black solid 0.3rem;
+}
+
 
 
