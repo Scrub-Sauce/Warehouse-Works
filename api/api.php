@@ -12,6 +12,15 @@ switch($endPoint) {
     case "search":
         include("search.php");
         break;
+    case "insert_type":
+        include("insert_type.php");
+        break;
+    case "insert_manufacture":
+        include("insert_manufacture.php");
+        break;
+    case "insert_equipment":
+        include("insert_equipment.php");
+        break;
 
     default:
         $output[] = 'Status: Error';
