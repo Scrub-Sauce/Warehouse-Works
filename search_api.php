@@ -128,6 +128,9 @@ echo '<body>';
                         echo "</tr>";
                     }
                     echo "</tbody>";
+                    $tmp = explose(':', $results[2]);
+                    $execution_time = trim($tmp[1]);
+                    echo "<h3>$execution_time</h3>";
                 }
             }
         }
