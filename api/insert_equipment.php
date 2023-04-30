@@ -63,30 +63,30 @@ if($data == NULL){
     die();
 }else{
     $m_query = $data[$m_query];
-    echo "$m_query";
+    echo "'$m_query'";
     $m_found = true;
 }
 
-//$sql = "SELECT * FROM `type` WHERE `name` = '$t_query'";
-//$result = $db->query($sql) or
-//    die("Something went wrong with $sql<br>".$db->error);
-//$data = $result->fetch_array(MYSQLI_ASSOC);
-//if($data == NULL){
-//    $output[] = "Status: Error";
-//    $output[] = "MSG: Type does not exist";
-//    $output[] = "Action: Insert Type";
-//    $responseData = json_encode($output);
-//    echo "$responseData";
-//    die();
-//}else{
-//    $t_found = true;
-//}
-//
-//$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '$s_query'";
-//$result = $db->query($sql) or
-//    die("Something went wrong with $sql<br>".$db->error);
-//$data = $result->fetch_array(MYSQLI_ASSOC);
-//
+$sql = "SELECT * FROM `type` WHERE `name` = '$t_query'";
+$result = $db->query($sql) or
+    die("Something went wrong with $sql<br>".$db->error);
+$data = $result->fetch_array(MYSQLI_ASSOC);
+if($data == NULL){
+    $output[] = "Status: Error";
+    $output[] = "MSG: Type does not exist";
+    $output[] = "Action: Insert Type";
+    $responseData = json_encode($output);
+    echo "$responseData";
+    die();
+}else{
+    $t_found = true;
+}
+
+$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '$s_query'";
+$result = $db->query($sql) or
+    die("Something went wrong with $sql<br>".$db->error);
+$data = $result->fetch_array(MYSQLI_ASSOC);
+
 //if(($data == NULL) && ($t_found) && ($m_found)){
 //    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
 //    $db->query($sql) or
