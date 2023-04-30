@@ -1,6 +1,15 @@
 <?php
 include ('db_connect.php');
 
+if(count($_REQUEST) != 1){
+    $output[] = "Status: Error";
+    $output[] = "MSG: Too many arguments";
+    $output[] = "Action: Only send manufacture data";
+    $responseData = json_encode($output);
+    echo "$responseData";
+    die();
+}
+
 if(!isset($_REQUEST['manufacture'])){
     $output[] = "Status: Error";
     $output[] = "MSG: Manufacture data NULL";
