@@ -1,14 +1,14 @@
 <?php
-$time_start = microtime(true);
+include("db_connect.php")
 
-//if(count($_REQUEST) != 3){
-//    $output[] = "Status: Error";
-//    $output[] = "MSG: Invalid number of arguments";
-//    $output[] = "Action: type, manufacture, and serial_num are the only accepted data";
-//    $responseData = json_encode($output);
-//    echo "$responseData";
-//    die();
-//}
+if(count($_REQUEST) != 3){
+    $output[] = "Status: Error";
+    $output[] = "MSG: Invalid number of arguments";
+    $output[] = "Action: type, manufacture, and serial_num are the only accepted data";
+    $responseData = json_encode($output);
+    echo "$responseData";
+    die();
+}
 
 if(!isset($_REQUEST['type'])){
     $output[] = "Status: Error";
@@ -44,12 +44,11 @@ if(!isset($_REQUEST['serial_num'])){
 }
 
 $db = db_iconnect('warehouse-works');
-$sql = "SELECT `auto_id` FROM `equipment` WHERE `serial_number` LIKE '%$s_query%'";
+$time_start = microtime(true);
+$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '%$s_query%'";
 $result = $db->query($sql) or
     die("Something went wrong with $sql<br>".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
-
-echo "<h2>$data</h2>";
 
 //if($data ==NULL){
 //    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
