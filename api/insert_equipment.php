@@ -1,5 +1,5 @@
 <?php
-include("db_connect.php")
+include("db_connect.php");
 
 if(count($_REQUEST) != 3){
     $output[] = "Status: Error";
