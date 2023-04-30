@@ -46,7 +46,7 @@ if(!isset($_REQUEST['num'])){
 
 $s_query = $_REQUEST['serial_num'];
 
-$info[] = array();
+$info = array();
 
 $db = db_iconnect('warehouse-works');
 $time_start = microtime(true);
