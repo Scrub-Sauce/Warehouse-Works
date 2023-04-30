@@ -62,11 +62,7 @@ if($data == NULL){
     echo "$responseData";
     die();
 }else{
-    echo "<pre>";
-    print_r($data);
-    echo "</pre>";
     $m_query = $data['auto_id'];
-    echo "$m_query";
     $m_found = true;
 }
 
@@ -82,6 +78,7 @@ if($data == NULL){
     echo "$responseData";
     die();
 }else{
+    $t_query = $data['auto_id'];
     $t_found = true;
 }
 
@@ -90,23 +87,23 @@ $result = $db->query($sql) or
     die("Something went wrong with $sql<br>".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
-//if(($data == NULL) && ($t_found) && ($m_found)){
-//    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
-//    $db->query($sql) or
-//        die("Something went wrong with $sql<br>".$db->error);
-//
-//    $time_end = microtime(true);
-//    $seconds = $time_end - $time_start;
-//    $execution_time = ($seconds) / 60;
-//
-//    $output[] = "Status: Success";
-//    $output[] = "MSG: Equipment successfully added.";
-//    $output[] = "Action: $execution_time";
-//    $responseData = json_encode($output);
-//}else{
-//    $output[] = "Status: Error";
-//    $output[] = "MSG: An equipment with the serial_num $s_query already exists";
-//    $output[] = "Action: None";
-//    $responseData = json_encode($output);
-//    echo "$responseData";
-//}
+if(($data == NULL) && ($t_found) && ($m_found)){
+    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
+    $db->query($sql) or
+        die("Something went wrong with $sql<br>".$db->error);
+
+    $time_end = microtime(true);
+    $seconds = $time_end - $time_start;
+    $execution_time = ($seconds) / 60;
+
+    $output[] = "Status: Success";
+    $output[] = "MSG: Equipment successfully added.";
+    $output[] = "Action: $execution_time";
+    $responseData = json_encode($output);
+}else{
+    $output[] = "Status: Error";
+    $output[] = "MSG: An equipment with the serial_num $s_query already exists";
+    $output[] = "Action: None";
+    $responseData = json_encode($output);
+    echo "$responseData";
+}
