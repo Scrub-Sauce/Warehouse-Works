@@ -111,7 +111,9 @@ echo '<body>';
             $status = trim($tmp[1]);
             if($status === 'Success'){
                 $tmp = explode(':', $results[1]);
-                echo "<pre>$tmp</pre>";
+                echo "<pre>";
+                    print_r($tmp);
+                echo "</pre>";
 
                 $data = json_decode($tmp[1], true);
                 if (count($data) == 0) {
