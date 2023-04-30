@@ -20,7 +20,7 @@ $result = $db->query($sql) or
     die("Something went wrong with $sql".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
-echo "$data";
+echo "'$data'";
 
 //if($data == NULL) {
 //    $sql = "INSERT INTO `type` (`name`) VALUES ('$type')";
