@@ -46,7 +46,7 @@ if($data == NULL) {
     $seconds = $time_end - $time_start;
     $execution_time = ($seconds) / 60;
 
-    $output[] = "Status: Error";
+    $output[] = "Status: Success";
     $output[] = "MSG: $manufacture added successfully";
     $output[] = "Action: $execution_time";
     $responseData = json_encode($output);

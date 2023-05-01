@@ -59,3 +59,6 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'submit'){
         echo "<p>Fix: $action[1]</p>";
     }
 }
+
+echo "</body>";
+echo "</html>";
