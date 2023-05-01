@@ -53,6 +53,8 @@ echo '<body>';
         $manufacture = $_POST['manufacture'];
         $serial_num = $_POST['serial_num'];
 
+        echo "Type: $type Manufacture: $manufacture Serial_num: $serial_num";
+
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://warehouse-works.systems/api/insert_equipment?type=$type&manufacture=$manufacture&serial_num=$serial_num",
@@ -85,7 +87,7 @@ echo '<body>';
             echo "<p>Execution Time: $time[1] minutes</p>";
         }else{
             $action = explode(":", $results[2]);
-            echo "<p>Fix: $action</p>";
+            echo "<p>Fix: $action[1]</p>";
         }
     }
 
