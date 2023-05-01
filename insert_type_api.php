@@ -59,6 +59,7 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'submit'){
         echo "<p>Fix: $action[1]</p>";
     }
 }
+echo '<a href="./search_api.php">Home</a>';
 
 echo "</body>";
 echo "</html>";
