@@ -104,7 +104,7 @@ if(($data == NULL) && ($t_found) && ($m_found)){
 }else{
     $output[] = "Status: Error";
     $output[] = "MSG: An equipment with the serial_num $s_query already exists";
-    $output[] = "Action: None";
+    $output[] = "Action: Choose another serial number";
     $responseData = json_encode($output);
     echo "$responseData";
 }

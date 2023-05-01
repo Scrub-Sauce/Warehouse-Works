@@ -53,8 +53,6 @@ echo '<body>';
         $manufacture = $_POST['manufacture'];
         $serial_num = $_POST['serial_num'];
 
-        echo "Type: $type Manufacture: $manufacture Serial_num: $serial_num";
-
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://warehouse-works.systems/api/insert_equipment?type=$type&manufacture=$manufacture&serial_num=$serial_num",
