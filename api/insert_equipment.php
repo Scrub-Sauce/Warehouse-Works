@@ -49,6 +49,7 @@ if(!isset($_REQUEST['serial_num'])){
         echo "$responseData";
         die();
     }
+    $serial_num = "$s_query\r";
 }
 
 $db = db_iconnect('warehouse-works');
@@ -90,13 +91,13 @@ if($data == NULL){
     $t_found = true;
 }
 
-$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '$s_query'";
+$sql = "SELECT * FROM `equipment` WHERE `serial_number` LIKE '$serial_num'";
 $result = $db->query($sql) or
     die("Something went wrong with $sql<br>".$db->error);
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
 if(($data == NULL) && ($t_found) && ($m_found)){
-    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query\r')";
+    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$serial_num')";
     $db->query($sql) or
         die("Something went wrong with $sql<br>".$db->error);
 
