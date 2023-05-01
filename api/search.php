@@ -61,7 +61,11 @@ if(!isset($_REQUEST['serial_num'])){
     echo "$responseData";
     die();
 }else{
-    $s_query = $_REQUEST['serial_num'];
+    $s_query = trim($_REQUEST['serial_num']);
+}
+
+if($s_query == ''){
+    $s_query = '%';
 }
 
 $info = array();
@@ -120,7 +124,7 @@ if($stat_query == 'all'){
 }
 
 // Form query and run it
-$sql = "SELECT * FROM `equipment` WHERE $type AND $manufacture AND $status AND `serial_number` LIKE '%$s_query%' LIMIT $n_query";
+$sql = "SELECT * FROM `equipment` WHERE $type AND $manufacture AND $status AND `serial_number` LIKE '$s_query' LIMIT $n_query";
 $result = $db->query($sql) or
     die('Something went wrong with $sql'.$db->error);
 while($data = $result->fetch_array(MYSQLI_ASSOC)){
