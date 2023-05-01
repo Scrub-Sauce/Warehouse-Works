@@ -32,7 +32,7 @@ if(!isset($_REQUEST['manufacture'])){
     $m_query = $_REQUEST['manufacture'];
 }
 
-if((!isset($_REQUEST['serial_num'])) || (trim($_REQUEST) == '')){
+if(!isset($_REQUEST['serial_num'])){
     $output[] = "Status: Error";
     $output[] = "MSG: Serial_num data NULL";
     $output[] = "Action: Resend Serial_num data";
@@ -40,7 +40,15 @@ if((!isset($_REQUEST['serial_num'])) || (trim($_REQUEST) == '')){
     echo "$responseData";
     die();
 }else{
-    $s_query = $_REQUEST['serial_num'];
+    $s_query = trim($_REQUEST['serial_num']);
+    if($s_query == ''){
+        $output[] = "Status: Error";
+        $output[] = "MSG: Serial_num data NULL";
+        $output[] = "Action: Resend Serial_num data";
+        $responseData = json_encode($output);
+        echo "$responseData";
+        die();
+    }
 }
 
 $db = db_iconnect('warehouse-works');
