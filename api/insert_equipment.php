@@ -96,7 +96,7 @@ $result = $db->query($sql) or
 $data = $result->fetch_array(MYSQLI_ASSOC);
 
 if(($data == NULL) && ($t_found) && ($m_found)){
-    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query')";
+    $sql = "INSERT INTO `equipment` (`type`, `manufacture`, `serial_number`) VALUES ('$t_query', '$m_query', '$s_query\r')";
     $db->query($sql) or
         die("Something went wrong with $sql<br>".$db->error);
 
