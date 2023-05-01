@@ -59,7 +59,7 @@ a {
 
 a:hover {
     background-color: rgb(28, 175, 28);
-    transform: scale(1.5, 1.5);
+    transform: scale(1.2, 1.2);
 }
 
 p {
