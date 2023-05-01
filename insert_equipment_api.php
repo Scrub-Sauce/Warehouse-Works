@@ -13,7 +13,7 @@ echo '<head>';
 echo '</head>';
 echo '<body>';
     echo '<h2>Insert new equipment</h2>';
-    echo '<form method="post" action="">';
+    echo '<form method="post" action="" class="form-wrapper">';
 
         echo '<div class="input-wrapper">';
             echo '<label for="type">Type: </label>';
@@ -35,7 +35,7 @@ echo '<body>';
             $result = $db->query($sql) or
             die("Something went wrong with: $sql<br>".$db->error);
             while($data=$result->fetch_array(MYSQLI_ASSOC)){
-                echo '<option value="'.$data['auto_id'].'">'.$data['name'].'</option>';
+                echo '<option value="'.$data['name'].'">'.$data['name'].'</option>';
             }
             echo '</select>';
         echo '</div>';
@@ -72,10 +72,21 @@ echo '<body>';
             $results = json_decode($response, true);
         }
 
+        $tmp = explode(":", $results[0]);
+        $status = trim($tmp[1]);
+
         $tmp = explode(":", $results[1]);
         $message = $tmp[1];
 
-        echo "$message";
+        echo "<h3>$message</h3>";
+
+        if($status == "Success"){
+            $time = explode(':', $results[2]);
+            echo "<p>Execution Time: $time[1] minutes</p>";
+        }else{
+            $action = explode(":", $results[2]);
+            echo "<p>Fix: $action</p>";
+        }
     }
 
 echo '</body>';
