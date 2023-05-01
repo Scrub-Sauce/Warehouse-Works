@@ -17,9 +17,17 @@ if(!isset($_REQUEST['manufacture'])){
     $responseData = json_encode($output);
     echo "$responseData";
     die();
+}else{
+    $manufacture = trim($_REQUEST['manufacture']);
+    if($manufacture == ''){
+        $output[] = "Status: Error";
+        $output[] = "MSG: Manufacture data NULL";
+        $output[] = "Action: Resend Manufacture data";
+        $responseData = json_encode($output);
+        echo "$responseData";
+        die();
+    }
 }
-
-$manufacture = $_REQUEST['manufacture'];
 
 $time_start = microtime(true);
 $db = db_iconnect('warehouse-works');

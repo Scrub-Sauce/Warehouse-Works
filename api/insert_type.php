@@ -17,9 +17,17 @@ if(!isset($_REQUEST['type'])){
     $responseData = json_encode($output);
     echo "$responseData";
     die();
+}else{
+    $type = trim($_REQUEST['type']);
+    if($type == ''){
+        $output[] = "Status: Error";
+        $output[] = "MSG: Type data NULL";
+        $output[] = "Action: Resend Type data";
+        $responseData = json_encode($output);
+        echo "$responseData";
+        die();
+    }
 }
-
-$type = $_REQUEST['type'];
 
 $time_start = microtime(true);
 $db = db_iconnect('warehouse-works');
