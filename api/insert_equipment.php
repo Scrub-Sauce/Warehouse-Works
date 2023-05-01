@@ -40,15 +40,7 @@ if(!isset($_REQUEST['serial_num'])){
     echo "$responseData";
     die();
 }else{
-    $s_query = trim($_REQUEST['serial_num']);
-    if($s_query == ''){
-        $output[] = "Status: Error";
-        $output[] = "MSG: Serial_num data NULL";
-        $output[] = "Action: Resend Serial_num data";
-        $responseData = json_encode($output);
-        echo "$responseData";
-        die();
-    }
+    $s_query = $_REQUEST['serial_num'];
 }
 
 $db = db_iconnect('warehouse-works');
