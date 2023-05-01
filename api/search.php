@@ -62,6 +62,7 @@ if(!isset($_REQUEST['serial_num'])){
     die();
 }else{
     $s_query = trim($_REQUEST['serial_num']);
+    echo "$s_query";
 }
 
 if($s_query == ''){
