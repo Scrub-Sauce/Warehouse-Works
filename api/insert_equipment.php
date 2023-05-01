@@ -32,7 +32,7 @@ if(!isset($_REQUEST['manufacture'])){
     $m_query = $_REQUEST['manufacture'];
 }
 
-if((!isset($_REQUEST['serial_num'])) && $_REQUEST['serial_num'] != ''){
+if((!isset($_REQUEST['serial_num'])) && (trim($_REQUEST['serial_num']) != '')){
     $output[] = "Status: Error";
     $output[] = "MSG: Serial_num data NULL";
     $output[] = "Action: Resend Serial_num data";
