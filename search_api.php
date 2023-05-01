@@ -15,7 +15,7 @@ echo '</head>';
 echo '<body>';
     echo '<nav class="nav-wrapper">';
         echo '<a href="insert_equipment_api.php">Insert Equipment</a>';
-        echo '<a href="insert_type_api.php.php">Insert Type</a>';
+        echo '<a href="insert_type_api.php">Insert Type</a>';
         echo '<a href="insert_manufacture_api.php">Insert Manufacture</a>';
     echo '</nav>';
     echo '<h2>Search Database</h2>';
